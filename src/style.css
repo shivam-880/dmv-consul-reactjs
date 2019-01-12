@@ -2,7 +2,7 @@
 	padding-left: 0px !important;
 }
 .rst__rowTitle {
-    font-family: 'Cardo', serif;
+    font-family: monospace;
 }
 .tree-view {
 	height: 500px;
@@ -20,6 +20,9 @@
 .tree-node-icon:hover {
 	background-color: #D9D9D9;
 }
+.tree-node-icon.fa-user-o:hover {
+	background-color: #F6F6F6;
+}
 .view-selector-icon {
 	border-radius: 50px;
     padding: 16px;
@@ -36,4 +39,10 @@
 }
 .expand-collapse-icon:hover {
 	color: #D9D9D9;
+}
+table {
+    font-family: monospace;
+}
+td.key {
+	font-weight: bold;
 }

@@ -15,18 +15,16 @@ class DeploymentModel extends Component {
 
     render() {
         return (
-            <div className='tree-view'>
-                <SortableTree
-                    treeData={this.props.treeData}
-                    onChange={treeData => this.props.updateView(treeData)}
-                    canDrag={false}
-                    generateNodeProps={
-                        ({ node, path }) => ({
-                            title: (<span><i className={node.className}></i>{node.title}</span>)
-                        })
-                    }
-                />
-            </div>
+            <SortableTree
+                treeData={this.props.treeData}
+                onChange={treeData => this.props.updateView(treeData)}
+                canDrag={false}
+                generateNodeProps={
+                    ({ node, path }) => ({
+                        title: (<span><i className={node.className}></i>{node.title}</span>)
+                    })
+                }
+            />
         );
     }
 }
