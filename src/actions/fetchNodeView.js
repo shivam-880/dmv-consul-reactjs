@@ -1,8 +1,6 @@
 import consul from '../apis/consul.js'
 import { treeNodeIcon, treeServiceIcon, treeMpsIcon } from '../icons'
 
-const nodeViewTreeData = [];
-
 const createNodeView = nodeApiResponse => {
     const nodeName = nodeApiResponse.Node.Node;
     const services = Object.values(nodeApiResponse.Services);
@@ -39,6 +37,8 @@ const createNodeView = nodeApiResponse => {
 }
 
 const fetchNodeView = () => async dispatch => {
+    const nodeViewTreeData = [];
+    
     const nodesRes = await consul.get('/catalog/nodes');
     const nodes = nodesRes.data;
 

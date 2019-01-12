@@ -6,13 +6,11 @@ import 'react-sortable-tree/style.css';
 import '../style.css';
 
 import fetchNodeView from '../actions/fetchNodeView';
-import fetchServiceView from '../actions/fetchServiceView';
-import fetchMpsView from '../actions/fetchMpsView';
 import updateView from '../actions/updateView';
 
 class DeploymentModel extends Component {
     componentDidMount() {
-        this.props.fetchMpsView();
+        this.props.fetchNodeView();
     }
 
     render() {
@@ -37,4 +35,4 @@ const mapStateToProps = ({ treeData }) => {
     return { treeData };
 }
 
-export default connect(mapStateToProps, { fetchNodeView, fetchServiceView, fetchMpsView, updateView })(DeploymentModel);
+export default connect(mapStateToProps, { fetchNodeView, updateView })(DeploymentModel);
