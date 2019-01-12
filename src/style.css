@@ -1,0 +1,27 @@
+.rst__rowContents {
+	padding-left: 0px !important;
+}
+.rst__rowTitle {
+    font-family: 'Cardo', serif;
+}
+.tree-view {
+	height: 500px;
+    width: 700px;
+    border: solid 1px #bbb;
+    border-radius: 5px;
+}
+.tree-node-icon {
+	border-right: solid 1px #BBB;
+	padding: 12px;
+	font-size: 16px;
+	margin-right: 10px;
+	background-color: #F6F6F6;
+	
+}
+.view-selector-icon {
+	border-radius: 50px;
+    padding: 18px;
+    font-size: 22px;
+    margin-right: 10px;
+    background-color: #F6F6F6;
+}

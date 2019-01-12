@@ -1,0 +1,40 @@
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import SortableTree from 'react-sortable-tree';
+import 'react-sortable-tree/style.css';
+
+import '../style.css';
+
+import fetchNodeView from '../actions/fetchNodeView';
+import fetchServiceView from '../actions/fetchServiceView';
+import fetchMpsView from '../actions/fetchMpsView';
+import updateView from '../actions/updateView';
+
+class DeploymentModel extends Component {
+    componentDidMount() {
+        this.props.fetchMpsView();
+    }
+
+    render() {
+        return (
+            <div className='tree-view'>
+                <SortableTree
+                    treeData={this.props.treeData}
+                    onChange={treeData => this.props.updateView(treeData)}
+                    canDrag={false}
+                    generateNodeProps={
+                        ({ node, path }) => ({
+                            title: (<span><i className={node.className}></i>{node.title}</span>)
+                        })
+                    }
+                />
+            </div>
+        );
+    }
+}
+
+const mapStateToProps = ({ treeData }) => {
+    return { treeData };
+}
+
+export default connect(mapStateToProps, { fetchNodeView, fetchServiceView, fetchMpsView, updateView })(DeploymentModel);
