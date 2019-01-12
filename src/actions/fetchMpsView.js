@@ -1,5 +1,6 @@
-import consul from '../apis/consul.js'
-import { treeNodeIcon, treeServiceIcon, treeMpsIcon } from '../icons'
+import consul from '../apis/consul.js';
+import { treeNodeIcon, treeServiceIcon, treeMpsIcon } from '../icons';
+import { FETCH_MPS_VIEW } from './actionType';
 
 const mpss = {};
 
@@ -56,7 +57,7 @@ const fetchMpsView = () => async dispatch => {
     const serviceViewTreeData = Object.values(mpss);
 
     dispatch({
-        type: 'FETCH_SERVICE_VIEW',
+        type: FETCH_MPS_VIEW,
         payload: serviceViewTreeData
     });
 };

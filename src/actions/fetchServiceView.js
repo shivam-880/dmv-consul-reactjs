@@ -1,5 +1,6 @@
-import consul from '../apis/consul.js'
-import { treeNodeIcon, treeServiceIcon, treeMpsIcon } from '../icons'
+import consul from '../apis/consul.js';
+import { treeNodeIcon, treeServiceIcon, treeMpsIcon } from '../icons';
+import { FETCH_SERVICE_VIEW } from './actionType';
 
 const createServiceView = serviceApiResponse => {
     const serviceInTree = {};
@@ -47,7 +48,7 @@ const fetchServiceView = () => async dispatch => {
     }
 
     dispatch({
-        type: 'FETCH_SERVICE_VIEW',
+        type: FETCH_SERVICE_VIEW,
         payload: serviceViewTreeData
     });
 };

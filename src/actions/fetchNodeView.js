@@ -1,5 +1,6 @@
 import consul from '../apis/consul.js'
 import { treeNodeIcon, treeServiceIcon, treeMpsIcon } from '../icons'
+import { FETCH_NODE_VIEW } from './actionType';
 
 const createNodeView = nodeApiResponse => {
     const nodeName = nodeApiResponse.Node.Node;
@@ -50,7 +51,7 @@ const fetchNodeView = () => async dispatch => {
     }
 
     dispatch({
-        type: 'FETCH_NODE_VIEW',
+        type: FETCH_NODE_VIEW,
         payload: nodeViewTreeData
     }); 
 };
