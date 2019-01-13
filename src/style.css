@@ -1,5 +1,7 @@
 .rst__rowContents {
 	padding-left: 0px !important;
+	border: 1px solid rgba(34,36,38,.15);
+	border-radius: 5px;
 }
 .rst__rowTitle {
     font-family: monospace;
@@ -7,11 +9,11 @@
 .tree-view {
 	height: 500px;
     width: 700px;
-    border: solid 1px #bbb;
+    border: 1px solid rgba(34,36,38,.15);
     border-radius: 5px;
 }
 .tree-node-icon {
-	border-right: solid 1px #BBB;
+	border-right: solid 1px rgba(34,36,38,.15);
 	padding: 12px;
 	font-size: 16px;
 	margin-right: 10px;

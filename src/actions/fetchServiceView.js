@@ -1,12 +1,14 @@
-import consul from '../apis/consul.js';
+import consul from '../apis/consul';
 import { treeNodeIcon, treeServiceIcon, treeMpsIcon } from '../icons';
 import { FETCH_SERVICE_VIEW } from './actionType';
+import { SERVICE, NODE, MPS } from '../treeNodeType';
 
 const createServiceView = serviceApiResponse => {
     const serviceInTree = {};
 
     serviceInTree['title'] = serviceApiResponse[0].ServiceName;
     serviceInTree['className'] = treeServiceIcon;
+    serviceInTree['type'] = SERVICE;
     serviceInTree['children'] = [];
 
     serviceApiResponse.forEach(service => {
@@ -14,6 +16,7 @@ const createServiceView = serviceApiResponse => {
 
         nodeInTree['title'] = service.Node;
         nodeInTree['className'] = treeNodeIcon;
+        nodeInTree['type'] = NODE;
         nodeInTree['children'] = [];
 
         Object.keys(service).forEach(key => {
@@ -22,6 +25,7 @@ const createServiceView = serviceApiResponse => {
                     const mpsInTree = {};
                     mpsInTree['title'] = tag;
                     mpsInTree['className'] = treeMpsIcon;
+                    mpsInTree['type'] = MPS;
 
                     nodeInTree['children'].push(mpsInTree);
                 });

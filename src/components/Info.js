@@ -7,16 +7,16 @@ class Info extends Component {
             <table className='ui celled striped table'>
                 <tbody>
                     <tr>
-                        <td className='key'>Node</td>
-                        <td>inblrlt-shivam</td>
+                        <td className='key'>Hostname</td>
+                        <td>{this.props.nodeInfo.title}</td>
                     </tr>
                     <tr>
                         <td className='key'>Interface</td>
-                        <td>10.172.127.13</td>
+                        <td>{this.props.nodeInfo.interface}</td>
                     </tr>
                     <tr>
                         <td className='key'>Status</td>
-                        <td>Passing</td>
+                        <td>{this.props.nodeInfo.status}</td>
                     </tr>
                 </tbody>
             </table>
@@ -24,8 +24,8 @@ class Info extends Component {
     }
 }
 
-const mapStateToProps = ({ treeData }) => {
-    return { treeData };
+const mapStateToProps = ({ nodeInfo }) => {
+    return { nodeInfo };
 }
 
 export default connect(mapStateToProps)(Info);

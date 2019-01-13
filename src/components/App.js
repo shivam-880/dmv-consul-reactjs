@@ -8,20 +8,20 @@ import Info from './Info';
 const App = () => {
   return (
     <div className="ui container">
-      <div class="ui three column grid">
-        <div class="row">
-          <div class="column">
+      <div className="ui three column grid">
+        <div className="row">
+          <div className="column">
             <ViewSelector />
           </div>
-          <div class="column">
+          <div className="column">
             <ExpandCollapseAll />
           </div>
         </div>
-        <div class="row">
-          <div class="tree-view">
+        <div className="row">
+          <div className="tree-view">
             <DeploymentModel />
           </div>
-          <div class="column">
+          <div className="column">
             <Info />
           </div>
         </div>
