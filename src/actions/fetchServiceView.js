@@ -54,8 +54,6 @@ const fetchServiceView = () => async dispatch => {
         serviceViewTreeData.push(createServiceView(service));
     }
 
-    console.log(serviceViewTreeData);
-
     dispatch({
         type: FETCH_SERVICE_VIEW,
         payload: serviceViewTreeData

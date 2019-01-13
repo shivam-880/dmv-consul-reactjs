@@ -3,8 +3,6 @@ import { treeNodeIcon, treeServiceIcon, treeMpsIcon } from '../icons';
 import { FETCH_MPS_VIEW } from './actionType';
 import { SERVICE, NODE, MPS } from '../treeNodeType';
 
-const mpss = {};
-
 const alreadyAddedAsChild = (arr, title) => {
     for (const i in arr) {
         if (arr[i].title === title) {
@@ -21,38 +19,41 @@ const alreadyAddedAsChild = (arr, title) => {
     }
 }
 
-const createNode = title => {
+const createNode = (title, parent) => {
     return {
         'title': title,
         'className': treeNodeIcon,
-        'type': NODE
+        'type': NODE,
+        'parent': parent
     };
 }
 
-const createService = (title, node) => {
+const createService = (title, node, parent) => {
     return {
         'title': title,
         'className': treeServiceIcon,
         'type': SERVICE,
-        'children': [node]
+        'children': [node],
+        'parent': parent
     };
 }
 
-const createMps = (title, service) => {
+const createMps = (title, service, parent = '') => {
     return {
         'title': title,
         'className': treeMpsIcon,
         'type': MPS,
-        'children': [service]
+        'children': [service],
+        'parent': parent
     };
 }
 
-const createServiceView = serviceApiResponse => {
+const createServiceView = (serviceApiResponse, mpss) => {
     const serviceTitle = serviceApiResponse[0].ServiceName;
 
     serviceApiResponse.forEach(service => {
         Object.keys(service).forEach(key => {
-            const nodeInTree = createNode(service.Node);
+            const nodeInTree = createNode(service.Node, serviceTitle);
 
             if (key === 'ServiceTags') {
                 service[key].forEach(tag => {
@@ -62,11 +63,11 @@ const createServiceView = serviceApiResponse => {
                         if (res) {
                             child.children.push(nodeInTree);
                         } else {
-                            const serviceInTree = createService(serviceTitle, nodeInTree);
+                            const serviceInTree = createService(serviceTitle, nodeInTree, tag);
                             mpss[tag].children.push(serviceInTree);
                         }
                     } else {
-                        const serviceInTree = createService(serviceTitle, nodeInTree);
+                        const serviceInTree = createService(serviceTitle, nodeInTree, tag);
                         const mpsInTree = createMps(tag, serviceInTree);
                         mpss[tag] = mpsInTree;
                     }
@@ -77,6 +78,8 @@ const createServiceView = serviceApiResponse => {
 }
 
 const fetchMpsView = () => async dispatch => {
+    const mpss = {};
+
     const servicesRes = await consul.get('/catalog/services');
     const services = Object.keys(servicesRes.data);
 
@@ -84,7 +87,7 @@ const fetchMpsView = () => async dispatch => {
         const serviceRes = await consul.get(`/catalog/service/${services[i]}`);
         const service = serviceRes.data;
 
-        createServiceView(service);
+        createServiceView(service, mpss);
     }
 
     const serviceViewTreeData = Object.values(mpss);

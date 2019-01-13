@@ -57,8 +57,6 @@ const fetchNodeView = () => async dispatch => {
         nodeViewTreeData.push(createNodeView(node));
     }
 
-    console.log(nodeViewTreeData);
-
     dispatch({
         type: FETCH_NODE_VIEW,
         payload: nodeViewTreeData
