@@ -8,7 +8,7 @@ class Info extends Component {
                 <tbody>
                     <tr>
                         <td className='key'>Hostname</td>
-                        <td>{this.props.nodeInfo.title}</td>
+                        <td>{this.props.nodeInfo.hostname}</td>
                     </tr>
                     <tr>
                         <td className='key'>Interface</td>

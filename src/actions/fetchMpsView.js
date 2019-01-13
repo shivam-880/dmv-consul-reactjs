@@ -5,34 +5,55 @@ import { SERVICE, NODE, MPS } from '../treeNodeType';
 
 const mpss = {};
 
-const alreadyAddedAsChild = (arr, title) => arr.some(value => {
-    return value.title === title;
-});
+const alreadyAddedAsChild = (arr, title) => {
+    for (const i in arr) {
+        if (arr[i].title === title) {
+            return {
+                res: true,
+                child: arr[i]
+            }
+        }
+    }
+
+    return {
+        res: false,
+        child: null
+    }
+}
 
 const createServiceView = serviceApiResponse => {
-    const serviceInTree = {};
-
-    serviceInTree['title'] = serviceApiResponse[0].ServiceName;
-    serviceInTree['className'] = treeServiceIcon;
-    serviceInTree['type'] = SERVICE;
-    serviceInTree['children'] = [];
+    const serviceTitle = serviceApiResponse[0].ServiceName;
 
     serviceApiResponse.forEach(service => {
-        const nodeInTree = {};
-
-        nodeInTree['title'] = service.Node;
-        nodeInTree['className'] = treeNodeIcon;
-        nodeInTree['type'] = NODE;
-
-        serviceInTree['children'].push(nodeInTree);
-
         Object.keys(service).forEach(key => {
+            const nodeInTree = {};
+            nodeInTree['title'] = service.Node;
+            nodeInTree['className'] = treeNodeIcon;
+            nodeInTree['type'] = NODE;
+
             if (key === 'ServiceTags') {
                 service[key].forEach(tag => {
                     if (tag in mpss) {
-                        if(!alreadyAddedAsChild(mpss[tag].children, serviceInTree.title))
+
+                        const { res, child } = alreadyAddedAsChild(mpss[tag].children, serviceTitle);
+                        if (res) {
+                            child.children.push(nodeInTree);
+                        } else {
+                            const serviceInTree = {};
+                            serviceInTree['title'] = serviceTitle;
+                            serviceInTree['className'] = treeServiceIcon;
+                            serviceInTree['type'] = SERVICE;
+                            serviceInTree['children'] = [nodeInTree];
+
                             mpss[tag].children.push(serviceInTree);
+                        }
                     } else {
+                        const serviceInTree = {};
+                        serviceInTree['title'] = serviceTitle;
+                        serviceInTree['className'] = treeServiceIcon;
+                        serviceInTree['type'] = SERVICE;
+                        serviceInTree['children'] = [nodeInTree];
+
                         let mpsInTree = {};
                         mpsInTree['title'] = tag;
                         mpsInTree['className'] = treeMpsIcon;

@@ -1,7 +1,7 @@
 import consul from '../apis/consul.js';
 import { FETCH_NODE_INFO } from './actionType';
 
-const fetchNodeInfo = (title) => async dispatch => {
+const fetchNodeInfo = title => async dispatch => {
     const nodeRes = await consul.get(`/catalog/node/${title}`);
     const address = nodeRes.data.Node.Address;
 
@@ -11,7 +11,7 @@ const fetchNodeInfo = (title) => async dispatch => {
     dispatch({
         type: FETCH_NODE_INFO,
         payload: {
-            'title': title,
+            'hostname': title,
             'interface': address,
             'status': status
         }

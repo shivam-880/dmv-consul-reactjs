@@ -9,6 +9,7 @@ const createServiceView = serviceApiResponse => {
     serviceInTree['title'] = serviceApiResponse[0].ServiceName;
     serviceInTree['className'] = treeServiceIcon;
     serviceInTree['type'] = SERVICE;
+    serviceInTree['parent'] = '';
     serviceInTree['children'] = [];
 
     serviceApiResponse.forEach(service => {
@@ -17,6 +18,7 @@ const createServiceView = serviceApiResponse => {
         nodeInTree['title'] = service.Node;
         nodeInTree['className'] = treeNodeIcon;
         nodeInTree['type'] = NODE;
+        nodeInTree['parent'] = serviceInTree.title;
         nodeInTree['children'] = [];
 
         Object.keys(service).forEach(key => {
@@ -26,6 +28,7 @@ const createServiceView = serviceApiResponse => {
                     mpsInTree['title'] = tag;
                     mpsInTree['className'] = treeMpsIcon;
                     mpsInTree['type'] = MPS;
+                    mpsInTree['parent'] = nodeInTree.title;
 
                     nodeInTree['children'].push(mpsInTree);
                 });
@@ -50,6 +53,8 @@ const fetchServiceView = () => async dispatch => {
 
         serviceViewTreeData.push(createServiceView(service));
     }
+
+    console.log(serviceViewTreeData);
 
     dispatch({
         type: FETCH_SERVICE_VIEW,

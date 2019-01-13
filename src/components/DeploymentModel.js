@@ -8,6 +8,7 @@ import '../style.css';
 import fetchNodeView from '../actions/fetchNodeView';
 import updateView from '../actions/updateView';
 import fetchNodeInfo from '../actions/fetchNodeInfo';
+import fetchServiceInfo from '../actions/fetchServiceInfo';
 import { NODE, SERVICE } from '../treeNodeType';
 
 class DeploymentModel extends Component {
@@ -15,14 +16,14 @@ class DeploymentModel extends Component {
         this.props.fetchNodeView();
     }
 
-    fetchInfo = (type, title) => () => {
-        if (type === NODE) {
+    fetchInfo = (node) => () => {
+        console.log(node);
+        let {type, title} = node;
+        if (type === NODE)
             this.props.fetchNodeInfo(title);
-        }
 
-        if (type === SERVICE) {
-            // this.props.fetchServiceInfo(title);
-        }
+        if (type === SERVICE)
+            this.props.fetchServiceInfo(title);
     }
 
     render() {
@@ -33,7 +34,7 @@ class DeploymentModel extends Component {
                 canDrag={false}
                 generateNodeProps={
                     ({ node, path }) => ({
-                        title: (<span><i className={node.className} onClick={this.fetchInfo(node.type, node.title)}></i>{node.title}</span>)
+                        title: (<span><i className={node.className} onClick={this.fetchInfo(node)}></i>{node.title}</span>)
                     })
                 }
             />
@@ -41,8 +42,8 @@ class DeploymentModel extends Component {
     }
 }
 
-const mapStateToProps = ({ treeData, nodeInfo }) => {
-    return { treeData, nodeInfo };
+const mapStateToProps = ({ treeData }) => {
+    return { treeData };
 }
 
-export default connect(mapStateToProps, { fetchNodeView, fetchNodeInfo, updateView })(DeploymentModel);
+export default connect(mapStateToProps, { fetchNodeView, fetchNodeInfo, fetchServiceInfo, updateView })(DeploymentModel);

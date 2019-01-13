@@ -6,4 +6,3 @@ export const UPDATE_VIEW = 'UPDATE_VIEW';
 
 export const FETCH_NODE_INFO = 'FETCH_NODE_INFO';
 export const FETCH_SERVICE_INFO = 'FETCH_SERVICE_INFO';
-export const FETCH_MPS_INFO = 'FETCH_MPS_INFO';
