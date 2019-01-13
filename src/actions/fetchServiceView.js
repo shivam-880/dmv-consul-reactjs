@@ -3,33 +3,46 @@ import { treeNodeIcon, treeServiceIcon, treeMpsIcon } from '../icons';
 import { FETCH_SERVICE_VIEW } from './actionType';
 import { SERVICE, NODE, MPS } from '../treeNodeType';
 
-const createServiceView = serviceApiResponse => {
-    const serviceInTree = {};
+const createNode = (title, parent, children = []) => {
+    return {
+        'title': title,
+        'className': treeNodeIcon,
+        'type': NODE,
+        'parent': parent,
+        'children': children
+    };
+}
 
-    serviceInTree['title'] = serviceApiResponse[0].ServiceName;
-    serviceInTree['className'] = treeServiceIcon;
-    serviceInTree['type'] = SERVICE;
-    serviceInTree['parent'] = '';
-    serviceInTree['children'] = [];
+const createService = (title, parent = '', children = []) => {
+    return {
+        'title': title,
+        'className': treeServiceIcon,
+        'type': SERVICE,
+        'parent': parent,
+        'children': children
+    };
+}
+
+const createMps = (title, parent, children = []) => {
+    return {
+        'title': title,
+        'className': treeMpsIcon,
+        'type': MPS,
+        'parent': parent,
+        'children': children
+    };
+}
+
+const createServiceView = serviceApiResponse => {
+    const serviceInTree = createService(serviceApiResponse[0].ServiceName, );
 
     serviceApiResponse.forEach(service => {
-        const nodeInTree = {};
-
-        nodeInTree['title'] = service.Node;
-        nodeInTree['className'] = treeNodeIcon;
-        nodeInTree['type'] = NODE;
-        nodeInTree['parent'] = serviceInTree.title;
-        nodeInTree['children'] = [];
+        const nodeInTree = createNode(service.Node, serviceInTree.title);
 
         Object.keys(service).forEach(key => {
             if (key === 'ServiceTags') {
                 service[key].forEach(tag => {
-                    const mpsInTree = {};
-                    mpsInTree['title'] = tag;
-                    mpsInTree['className'] = treeMpsIcon;
-                    mpsInTree['type'] = MPS;
-                    mpsInTree['parent'] = nodeInTree.title;
-
+                    const mpsInTree = createMps(tag, nodeInTree.title);
                     nodeInTree['children'].push(mpsInTree);
                 });
             }
