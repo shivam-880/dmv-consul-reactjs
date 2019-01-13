@@ -21,15 +21,38 @@ const alreadyAddedAsChild = (arr, title) => {
     }
 }
 
+const createNode = title => {
+    return {
+        'title': title,
+        'className': treeNodeIcon,
+        'type': NODE
+    };
+}
+
+const createService = (title, node) => {
+    return {
+        'title': title,
+        'className': treeServiceIcon,
+        'type': SERVICE,
+        'children': [node]
+    };
+}
+
+const createMps = (title, service) => {
+    return {
+        'title': title,
+        'className': treeMpsIcon,
+        'type': MPS,
+        'children': [service]
+    };
+}
+
 const createServiceView = serviceApiResponse => {
     const serviceTitle = serviceApiResponse[0].ServiceName;
 
     serviceApiResponse.forEach(service => {
         Object.keys(service).forEach(key => {
-            const nodeInTree = {};
-            nodeInTree['title'] = service.Node;
-            nodeInTree['className'] = treeNodeIcon;
-            nodeInTree['type'] = NODE;
+            const nodeInTree = createNode(service.Node);
 
             if (key === 'ServiceTags') {
                 service[key].forEach(tag => {
@@ -39,27 +62,12 @@ const createServiceView = serviceApiResponse => {
                         if (res) {
                             child.children.push(nodeInTree);
                         } else {
-                            const serviceInTree = {};
-                            serviceInTree['title'] = serviceTitle;
-                            serviceInTree['className'] = treeServiceIcon;
-                            serviceInTree['type'] = SERVICE;
-                            serviceInTree['children'] = [nodeInTree];
-
+                            const serviceInTree = createService(serviceTitle, nodeInTree);
                             mpss[tag].children.push(serviceInTree);
                         }
                     } else {
-                        const serviceInTree = {};
-                        serviceInTree['title'] = serviceTitle;
-                        serviceInTree['className'] = treeServiceIcon;
-                        serviceInTree['type'] = SERVICE;
-                        serviceInTree['children'] = [nodeInTree];
-
-                        let mpsInTree = {};
-                        mpsInTree['title'] = tag;
-                        mpsInTree['className'] = treeMpsIcon;
-                        mpsInTree['type'] = MPS;
-                        mpsInTree['children'] = [serviceInTree];
-
+                        const serviceInTree = createService(serviceTitle, nodeInTree);
+                        const mpsInTree = createMps(tag, serviceInTree);
                         mpss[tag] = mpsInTree;
                     }
                 });
