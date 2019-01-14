@@ -2,25 +2,33 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Info extends Component {
+
+    renderKeyValue(info) {
+        return Object.keys(info).map(key => {
+            return (
+                <tr key={info[key]}>
+                    <td className='key'>{key.replace(/^\w/, c => c.toUpperCase())}</td>
+                    <td>{info[key]}</td>
+                </tr>
+            );
+        });
+    }
+
+    renderInfo() {
+        return this.props.treeNodeInfo.map(info => {
+            return (
+                <table className='ui celled striped table' key={Math.random()}>
+                    <tbody>
+                        {this.renderKeyValue(info)}
+                    </tbody>
+                </table>
+            );
+        });
+    }
+
     render() {
-        console.log(JSON.stringify(this.props.treeNodeInfo));
-        return (<div></div>
-            // <table className='ui celled striped table'>
-            //     <tbody>
-            //         <tr>
-            //             <td className='key'>Hostname</td>
-            //             <td>{this.props.nodeInfos[0].hostname}</td>
-            //         </tr>
-            //         <tr>
-            //             <td className='key'>Interface</td>
-            //             <td>{this.props.nodeInfos[0].interface}</td>
-            //         </tr>
-            //         <tr>
-            //             <td className='key'>Status</td>
-            //             <td>{this.props.nodeInfos[0].status}</td>
-            //         </tr>
-            //     </tbody>
-            // </table>
+        return (
+            <div>{this.renderInfo()}</div>
         );
     }
 }
