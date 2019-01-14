@@ -16,13 +16,12 @@ class DeploymentModel extends Component {
         this.props.fetchNodeView();
     }
 
-    fetchInfo = (node) => () => {
-        let {type, title} = node;
+    fetchInfo = ({ type, title, parent = '' }) => () => {
         if (type === NODE)
             this.props.fetchNodeInfo(title);
 
         if (type === SERVICE)
-            this.props.fetchServiceInfo(title);
+            this.props.fetchServiceInfo(title, parent);
     }
 
     render() {
