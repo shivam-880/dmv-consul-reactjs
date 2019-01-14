@@ -1,4 +1,4 @@
-import { UPDATE_VIEW } from './actionType';
+import { UPDATE_VIEW } from '../types/actionType';
 
 const updateView = (treeData) => {
     return {

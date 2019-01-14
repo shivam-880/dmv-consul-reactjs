@@ -9,7 +9,7 @@ import fetchNodeView from '../actions/fetchNodeView';
 import updateView from '../actions/updateView';
 import fetchNodeInfo from '../actions/fetchNodeInfo';
 import fetchServiceInfo from '../actions/fetchServiceInfo';
-import { NODE, SERVICE } from '../treeNodeType';
+import { NODE, SERVICE } from '../types/treeNodeType';
 
 class DeploymentModel extends Component {
     componentDidMount() {
@@ -17,7 +17,6 @@ class DeploymentModel extends Component {
     }
 
     fetchInfo = (node) => () => {
-        console.log(node);
         let {type, title} = node;
         if (type === NODE)
             this.props.fetchNodeInfo(title);

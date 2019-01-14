@@ -1,8 +1,10 @@
 import consul from '../apis/consul.js';
-import { FETCH_SERVICE_INFO } from './actionType';
+import { FETCH_SERVICE_INFO } from '../types/actionType';
+import { NODE_VIEW, SERVICE_VIEW, MPS_VIEW } from '../types/treeViewType';
 
-const fetchNodeInfo = title => async dispatch => {
+const fetchServiceInfo = title => async dispatch => {
     const serviceRes = await consul.get(`/health/service/${title}`);
+    console.log(serviceRes);
     const port = serviceRes.data.Node.Address;
     const status = serviceRes.data.Status;
 
@@ -16,4 +18,4 @@ const fetchNodeInfo = title => async dispatch => {
     });
 };
 
-export default fetchNodeInfo;
+export default fetchServiceInfo;

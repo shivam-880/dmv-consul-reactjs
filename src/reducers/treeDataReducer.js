@@ -1,4 +1,4 @@
-import { FETCH_NODE_VIEW, FETCH_SERVICE_VIEW, FETCH_MPS_VIEW, UPDATE_VIEW } from '../actions/actionType';
+import { FETCH_NODE_VIEW, FETCH_SERVICE_VIEW, FETCH_MPS_VIEW, UPDATE_VIEW } from '../types/actionType';
 
 const treeDataReducer = (treeData = [], { type, payload }) => {
     if (

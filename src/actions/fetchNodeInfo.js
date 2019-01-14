@@ -1,5 +1,5 @@
 import consul from '../apis/consul.js';
-import { FETCH_NODE_INFO } from './actionType';
+import { FETCH_NODE_INFO } from '../types/actionType';
 
 const fetchNodeInfo = title => async dispatch => {
     const nodeRes = await consul.get(`/catalog/node/${title}`);
