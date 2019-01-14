@@ -15,6 +15,7 @@ const fetchServiceInfo = (title, parent) => async (dispatch, getState) => {
                 serviceInfos.push({
                     'service': title,
                     'hostname': i.Node.Node,
+                    'interface': i.Node.Address,
                     'port': port,
                     'status': i.Checks[1].Status
                 })
@@ -26,6 +27,7 @@ const fetchServiceInfo = (title, parent) => async (dispatch, getState) => {
                 serviceInfos.push({
                     'service': title,
                     'hostname': i.Node.Node,
+                    'interface': i.Node.Address,
                     'port': port,
                     'status': i.Checks[1].Status
                 });
