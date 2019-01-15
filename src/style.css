@@ -25,26 +25,41 @@
 .tree-node-icon.fa-user-o:hover {
 	background-color: #F6F6F6;
 }
+.view-selector {
+	display: flex;
+	flex-direction: column;
+}
 .view-selector-icon {
 	border-radius: 50px;
     padding: 16px;
-    font-size: 22px;
+    font-size: 27px;
     margin-right: 10px;
 	background-color: #F6F6F6;
+	height: 60px;
+	margin: 10px;
+	width: 60px;
 	color: #444444;
+	text-align: center;
 }
 .view-selector-icon:hover {
 	background-color: #D9D9D9;
 }
 .expand-collapse-icon {
+	padding: 5px;
 	color: #444444;
+	font-size: 1.4em;
 }
 .expand-collapse-icon:hover {
 	color: #D9D9D9;
 }
 table {
-    font-family: monospace;
+	font-family: monospace;
 }
 td.key {
 	font-weight: bold;
+}
+.info {
+	height: 500px;
+	padding-right: 5px;
+	overflow: auto;
 }

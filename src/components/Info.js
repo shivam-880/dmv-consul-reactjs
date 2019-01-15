@@ -28,7 +28,7 @@ class Info extends Component {
 
     render() {
         return (
-            <div>{this.renderInfo()}</div>
+            <div className="info">{this.renderInfo()}</div>
         );
     }
 }

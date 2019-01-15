@@ -9,7 +9,7 @@ import { selectorNodeIcon, selectorServiceIcon, selectorMpsIcon } from '../icons
 class ViewSelector extends Component {
     render() {
         return (
-            <div>
+            <div className="view-selector">
                 <i className={selectorNodeIcon} onClick={this.props.fetchNodeView}></i>
                 <i className={selectorServiceIcon} onClick={this.props.fetchServiceView}></i>
                 <i className={selectorMpsIcon} onClick={this.props.fetchMpsView}></i>
