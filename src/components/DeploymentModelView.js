@@ -9,6 +9,7 @@ import fetchNodeView from '../actions/fetchNodeView';
 import updateView from '../actions/updateView';
 import fetchNodeInfo from '../actions/fetchNodeInfo';
 import fetchServiceInfo from '../actions/fetchServiceInfo';
+import { udpateSearchFocusIndex, updateSearchFoundCount } from '../actions/updateSearchData';
 import { NODE, SERVICE } from '../types/treeNodeType';
 import { doSearch } from './SearchBox';
 
@@ -38,13 +39,31 @@ class DeploymentModel extends Component {
                 }
                 searchMethod={doSearch}
                 searchQuery={this.props.searchData.searchString}
-                searchFocusOffset={0}
+                searchFocusOffset={this.props.searchData.searchFocusIndex}
+                searchFinishCallback={matches => {
+                    this.props.updateSearchFoundCount(matches.length);
+                    this.props.udpateSearchFocusIndex(
+                        matches.length > 0 ? this.props.searchData.searchFocusIndex % matches.length : 0
+                    );
+                    
+                    if (matches.length > 0)
+                        this.fetchInfo(matches[0].node)();
+                }}
             />
         );
     }
 }
 
-const mapStateToProps = ({ treeData, searchData }) => 
-    { return { treeData, searchData } };
+const mapStateToProps = ({ treeData, searchData }) => { return { treeData, searchData } };
 
-export default connect(mapStateToProps, { fetchNodeView, fetchNodeInfo, fetchServiceInfo, updateView })(DeploymentModel);
+export default connect(
+    mapStateToProps,
+    {
+        fetchNodeView,
+        updateView,
+        fetchNodeInfo,
+        fetchServiceInfo,
+        updateSearchFoundCount,
+        udpateSearchFocusIndex
+    }
+)(DeploymentModel);

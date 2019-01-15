@@ -4,17 +4,13 @@ import { connect } from 'react-redux';
 import { updateSearchString } from '../actions/updateSearchData';
 
 class SearchBox extends Component {
-    componentDidMount() {
-        this.props.updateSearchString('');
-    }
-
     render() {
         return (
             <form className="ui form" onSubmit={e => e.preventDefault()}>
                 <input
                     name='search'
                     placeholder='Search'
-                    defaultValue={this.props.searchData.searchString}
+                    value={this.props.searchData.searchString}
                     onChange={e => this.props.updateSearchString(e.target.value)}
                 />
             </form>
