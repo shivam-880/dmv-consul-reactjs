@@ -8,12 +8,12 @@
 }
 .rst__rowSearchFocus {
 	outline: 0;
-    box-shadow: 0 0 4pt 1pt #FF0000 !important;
+    box-shadow: 0 0 4pt 1pt #C4D613 !important;
 	border-radius: 5px;
 }
 .rst__rowSearchMatch {
 	outline: 0;
-	box-shadow: 0 0 4pt 1pt #FFFF00;
+	box-shadow: 0 0 4pt 1pt #FCE904;
 	border-radius: 5px;
 }
 .tree-view {
