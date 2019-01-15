@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { Field, reduxForm } from 'redux-form';
 
 class SearchBox extends Component {
+    renderInput(formProps) {
+        return <input {...formProps.input} placeholder='Search' />
+    }
+
     render() {
         return (
-            <div>SearchBox</div>
+            <form className="ui form">
+                <Field name='search' component={this.renderInput} />
+            </form>
         );
     }
 }
 
-export default SearchBox;
+export default reduxForm({
+    form: 'SearchBox'
+})(SearchBox);
+
+export const doSearch = ({ node, searchQuery }) => {
+    if(null != searchQuery)
+        return node.title.toLowerCase().indexOf(searchQuery.search.toLowerCase()) > -1;
+    else return false;
+}

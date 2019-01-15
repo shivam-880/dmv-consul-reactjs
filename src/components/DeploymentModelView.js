@@ -10,6 +10,7 @@ import updateView from '../actions/updateView';
 import fetchNodeInfo from '../actions/fetchNodeInfo';
 import fetchServiceInfo from '../actions/fetchServiceInfo';
 import { NODE, SERVICE } from '../types/treeNodeType';
+import { doSearch } from './SearchBox';
 
 class DeploymentModel extends Component {
     componentDidMount() {
@@ -35,13 +36,17 @@ class DeploymentModel extends Component {
                         title: (<span><i className={node.className} onClick={this.fetchInfo(node)}></i>{node.title}</span>)
                     })
                 }
+                searchMethod={doSearch}
+                searchQuery={this.props.searchString}
+                searchFocusOffset={0}
             />
         );
     }
 }
 
-const mapStateToProps = ({ treeData }) => {
-    return { treeData };
+const mapStateToProps = ({ treeData, form }) => {
+    const searchString = Object.keys(form).length === 0 ? {} : form.SearchBox.values
+    return { treeData, searchString };
 }
 
 export default connect(mapStateToProps, { fetchNodeView, fetchNodeInfo, fetchServiceInfo, updateView })(DeploymentModel);
