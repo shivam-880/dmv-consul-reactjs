@@ -4,6 +4,7 @@ import ViewSelector from './ViewSelector';
 import ExpandCollapseAll from './ExpandCollapseAll';
 import DeploymentModelView from './DeploymentModelView';
 import InfoView from './InfoView';
+import SearchBox from './SearchBox';
 
 const App = () => {
   return (
@@ -13,8 +14,13 @@ const App = () => {
           <div className="column">
             <ViewSelector />
           </div>
-          <div className="column">
+        </div>
+        <div className="row">
+        <div className="column">
             <ExpandCollapseAll />
+          </div>
+          <div className="column">
+            <SearchBox />
           </div>
         </div>
         <div className="row">
