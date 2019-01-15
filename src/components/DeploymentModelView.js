@@ -37,16 +37,14 @@ class DeploymentModel extends Component {
                     })
                 }
                 searchMethod={doSearch}
-                searchQuery={this.props.searchString}
+                searchQuery={this.props.searchData.searchString}
                 searchFocusOffset={0}
             />
         );
     }
 }
 
-const mapStateToProps = ({ treeData, form }) => {
-    const searchString = Object.keys(form).length === 0 ? {} : form.SearchBox.values
-    return { treeData, searchString };
-}
+const mapStateToProps = ({ treeData, searchData }) => 
+    { return { treeData, searchData } };
 
 export default connect(mapStateToProps, { fetchNodeView, fetchNodeInfo, fetchServiceInfo, updateView })(DeploymentModel);

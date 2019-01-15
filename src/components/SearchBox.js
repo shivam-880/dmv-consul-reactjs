@@ -1,26 +1,33 @@
 import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+
+import { updateSearchString } from '../actions/updateSearchData';
 
 class SearchBox extends Component {
-    renderInput(formProps) {
-        return <input {...formProps.input} placeholder='Search' />
+    componentDidMount() {
+        this.props.updateSearchString('');
     }
 
     render() {
         return (
-            <form className="ui form">
-                <Field name='search' component={this.renderInput} />
+            <form className="ui form" onSubmit={e => e.preventDefault()}>
+                <input
+                    name='search'
+                    placeholder='Search'
+                    defaultValue={this.props.searchData.searchString}
+                    onChange={e => this.props.updateSearchString(e.target.value)}
+                />
             </form>
         );
     }
 }
 
-export default reduxForm({
-    form: 'SearchBox'
-})(SearchBox);
+const mapStateToProps = ({ searchData }) => { return { searchData } };
+
+export default connect(mapStateToProps, { updateSearchString })(SearchBox);
 
 export const doSearch = ({ node, searchQuery }) => {
-    if(null != searchQuery)
-        return node.title.toLowerCase().indexOf(searchQuery.search.toLowerCase()) > -1;
+    if (searchQuery !== '')
+        return node.title.toLowerCase().indexOf(searchQuery.toLowerCase()) > -1;
     else return false;
 }
