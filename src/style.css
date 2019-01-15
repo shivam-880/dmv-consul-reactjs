@@ -8,7 +8,7 @@
 }
 .rst__rowSearchFocus {
 	outline: 0;
-    box-shadow: 0 0 4pt 1pt #27A51A !important;
+    box-shadow: 0 0 4pt 1pt #FF0000 !important;
 	border-radius: 5px;
 }
 .rst__rowSearchMatch {
