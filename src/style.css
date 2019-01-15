@@ -58,7 +58,7 @@ table {
 td.key {
 	font-weight: bold;
 }
-.info {
+.info-view {
 	height: 500px;
 	padding-right: 5px;
 	overflow: auto;

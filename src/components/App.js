@@ -2,8 +2,8 @@ import React from 'react';
 
 import ViewSelector from './ViewSelector';
 import ExpandCollapseAll from './ExpandCollapseAll';
-import DeploymentModel from './DeploymentModel';
-import Info from './Info';
+import DeploymentModelView from './DeploymentModelView';
+import InfoView from './InfoView';
 
 const App = () => {
   return (
@@ -19,10 +19,10 @@ const App = () => {
         </div>
         <div className="row">
           <div className="tree-view">
-            <DeploymentModel />
+            <DeploymentModelView />
           </div>
           <div className="column">
-            <Info />
+            <InfoView />
           </div>
         </div>
       </div>
