@@ -4,6 +4,7 @@ import { FETCH_NODE_VIEW, FETCH_SERVICE_VIEW, FETCH_MPS_VIEW, RESET_TREE_NODE_IN
 const treeNodeInfoReducer = (treeNodeInfo = [], { type, payload }) => {
     if (type === FETCH_SERVICE_INFO || type === FETCH_NODE_INFO )
         return payload;
+        
     if (
         type === FETCH_NODE_VIEW ||
         type === FETCH_SERVICE_VIEW ||

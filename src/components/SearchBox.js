@@ -2,24 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { updateSearchString, udpateSearchFocusIndex } from '../actions/updateSearchData';
-import { resetTreeNodeInfoView } from '../actions/resetTreeNodeInfoView';
+import resetTreeNodeInfoView from '../actions/resetTreeNodeInfoView';
 import fetchNodeInfo from '../actions/fetchNodeInfo';
 import fetchServiceInfo from '../actions/fetchServiceInfo';
 import { NODE, SERVICE, MPS } from '../types/treeNodeType';
 
 class SearchBox extends Component {
-
-    fetchInfo = ({ type, title, parent = '' }) => () => {
-        console.log(type + " : " + title + " : " + parent);
-        if (type === NODE)
-            this.props.fetchNodeInfo(title);
-
-        if (type === SERVICE)
-            this.props.fetchServiceInfo(title, parent);
-
-        if (type === MPS)
-            this.props.resetTreeNodeInfoView();
-    }
 
     selectPrevMatch = () => {
         const searchFocusIndex = this.props.searchData.searchFocusIndex;
@@ -29,9 +17,6 @@ class SearchBox extends Component {
         this.props.udpateSearchFocusIndex(
             searchFocusIndex !== null ? (searchFoundCount + searchFocusIndex - 1) % searchFoundCount : searchFoundCount - 1
         );
-
-        const i = ((searchFocusIndex - 1) === -1) ? searchMatches.length - 1 : searchFocusIndex - 1;
-        this.fetchInfo(searchMatches[i].node)();
     }
 
     selectNextMatch = () => {
@@ -42,9 +27,6 @@ class SearchBox extends Component {
         this.props.udpateSearchFocusIndex(
             searchFocusIndex !== null ? (searchFocusIndex + 1) % searchFoundCount : 0
         );
-
-        const i = ((searchFocusIndex + 1) === searchMatches.length) ? 0 : searchFocusIndex + 1;
-        this.fetchInfo(searchMatches[i].node)();
     }
 
     render() {

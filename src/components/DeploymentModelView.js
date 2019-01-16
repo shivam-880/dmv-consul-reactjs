@@ -9,8 +9,9 @@ import fetchNodeView from '../actions/fetchNodeView';
 import updateView from '../actions/updateView';
 import fetchNodeInfo from '../actions/fetchNodeInfo';
 import fetchServiceInfo from '../actions/fetchServiceInfo';
-import { udpateSearchFocusIndex, updateSearchFoundCount, updateSearchMatches } from '../actions/updateSearchData';
-import { NODE, SERVICE } from '../types/treeNodeType';
+import resetTreeNodeInfoView from '../actions/resetTreeNodeInfoView';
+import { udpateSearchFocusIndex, updateSearchFoundCount } from '../actions/updateSearchData';
+import { NODE, SERVICE, MPS } from '../types/treeNodeType';
 import { doSearch } from './SearchBox';
 
 class DeploymentModel extends Component {
@@ -24,6 +25,9 @@ class DeploymentModel extends Component {
 
         if (type === SERVICE)
             this.props.fetchServiceInfo(title, parent);
+
+        if (type === MPS)
+            this.props.resetTreeNodeInfoView();
     }
 
     render() {
@@ -45,11 +49,9 @@ class DeploymentModel extends Component {
                     this.props.udpateSearchFocusIndex(
                         matches.length > 0 ? this.props.searchData.searchFocusIndex % matches.length : 0
                     );
-                    
+
                     if (matches.length > 0)
-                        this.fetchInfo(matches[0].node)();
-                    
-                    this.props.updateSearchMatches(matches);
+                        this.fetchInfo(matches[this.props.searchData.searchFocusIndex].node)();
                 }}
             />
         );
@@ -65,8 +67,8 @@ export default connect(
         updateView,
         fetchNodeInfo,
         fetchServiceInfo,
+        resetTreeNodeInfoView,
         updateSearchFoundCount,
-        udpateSearchFocusIndex,
-        updateSearchMatches
+        udpateSearchFocusIndex
     }
 )(DeploymentModel);
