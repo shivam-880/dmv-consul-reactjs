@@ -18,7 +18,7 @@
 }
 .tree-view {
 	height: 100%;
-    width: 50%;
+    width: 54%;
     border: 1px solid rgba(34,36,38,.15);
     border-radius: 5px;
 }
@@ -58,6 +58,7 @@
 	display: flex !important;
 	align-items: center !important;
 	justify-content: center !important;
+	margin-bottom: 10px;
 }
 .expand-collapse-icon {
 	padding: 5px;
@@ -118,6 +119,7 @@ td.key {
 }
 .container {
 	width: 90% !important;
+	margin-top: 15px;
 }
 .fa-sort-up {
 	position: relative;
@@ -135,4 +137,9 @@ i {
 }
 .selected {
 	background-color: #D9D9D9;
+}
+.view-selector-container{
+	display: flex !important;
+	justify-content: space-evenly !important;
+	flex-direction: column !important;
 }

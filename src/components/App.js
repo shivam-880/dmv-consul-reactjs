@@ -20,7 +20,7 @@ const App = () => {
           </div>
         </div>
         <div className="row">
-          <div className="two wide column">
+          <div className="two wide column view-selector-container">
             <ViewSelector />
           </div>
           <div className="tree-view">
