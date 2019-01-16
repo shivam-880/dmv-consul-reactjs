@@ -6,6 +6,7 @@ import resetTreeNodeInfoView from '../actions/resetTreeNodeInfoView';
 import fetchNodeInfo from '../actions/fetchNodeInfo';
 import fetchServiceInfo from '../actions/fetchServiceInfo';
 import { NODE, SERVICE, MPS } from '../types/treeNodeType';
+import { prevIcon, nextIcon, cancelIcon } from '../icons';
 
 class SearchBox extends Component {
 
@@ -29,9 +30,10 @@ class SearchBox extends Component {
 
     render() {
         return (
-            <form className="ui form" onSubmit={e => e.preventDefault()}>
+            <form className="search-box" onSubmit={e => e.preventDefault()}>
                 <input
                     name='search'
+                    className='search-field'
                     placeholder='Search'
                     value={this.props.searchString}
                     onChange={e => {
@@ -40,39 +42,31 @@ class SearchBox extends Component {
                             this.props.resetTreeNodeInfoView()
                     }}
                 />
-                <button
-                    type="button"
-                    disabled={!this.props.searchFoundCount}
-                    onClick={this.selectPrevMatch}
-                >
-                    &lt;
-                </button>
 
-                <button
-                    type="button"
-                    disabled={!this.props.searchFoundCount}
-                    onClick={this.selectNextMatch}
-                >
-                    &gt;
-                 </button>
-
-                <span>
+                <span className='found-search-matches'>
                     &nbsp;
                     {this.props.searchFoundCount > 0 ? this.props.searchFocusIndex + 1 : 0}
                     &nbsp;/&nbsp;
                     {this.props.searchFoundCount || 0}
+                    &nbsp;
                 </span>
+
+                <div class="separator"></div>
+
+                <i className={prevIcon} disabled={!this.props.searchFoundCount} onClick={this.selectPrevMatch}></i>
+                <i className={nextIcon} disabled={!this.props.searchFoundCount} onClick={this.selectNextMatch}></i>
+                <i className={cancelIcon} disabled={this.searchString === ''} onClick={() => this.props.updateSearchString('')}></i>
             </form>
         );
     }
 }
 
-const mapStateToProps = ({ searchData }) => { 
-    return { 
+const mapStateToProps = ({ searchData }) => {
+    return {
         searchString: searchData.searchString,
         searchFocusIndex: searchData.searchFocusIndex,
         searchFoundCount: searchData.searchFoundCount
-    } 
+    }
 };
 
 export default connect(

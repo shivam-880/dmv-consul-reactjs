@@ -73,3 +73,44 @@ td.key {
 	padding-right: 5px;
 	overflow: auto;
 }
+.search-box {
+	width: 450px;
+	border: 1px solid rgba(34,36,38,.15);
+	border-radius: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 15px;
+	padding-right: 15px;
+	display: flex;
+	flex-direction: row;
+	/* box-shadow: 0 0 2pt 1pt rgba(34,36,38,.15); */
+}
+.separator {
+	border-left: 1px solid rgba(34,36,38,.15);
+	height: 35px;
+	margin-left: 10px;
+	margin-right: 20px;
+  }
+  .search-field {
+	border: 0px;
+	width: 400px;
+  }
+  .search-field:focus {
+	  outline: none;
+  }
+.search-match-select {
+	margin: 4px;
+	padding-left: 3px;
+	padding-right: 3px;
+	color: grey;
+	text-align: center;
+}
+.search-match-select:hover {
+	border-radius: 5px;
+	padding-left: 3px;
+	padding-right: 3px;
+	background-color: rgba(34,36,38,.15);
+}
+.found-search-matches {
+	color: grey;
+}
