@@ -111,25 +111,10 @@ td.key {
 	text-align: center;
 }
 .search-match-select:hover {
-	height: 25px;
-	width: 32px;
-	border-radius: 50%;
-	background-color: rgba(34,36,38,.15);
+	color: rgba(34,36,38,.15);
 }
 .found-search-matches {
 	color: grey;
-}
-.fa-sort-up {
-	position: relative;
-	top: 3px;
-}
-.fa-sort-down {
-	position: relative;
-	top: 0px;
-}
-.fa-times {
-	position: relative;
-    bottom: 4px;
 }
 .container {
 	width: 90% !important;
