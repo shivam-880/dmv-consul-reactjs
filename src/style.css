@@ -27,6 +27,7 @@
 	padding: 12px;
 	font-size: 16px;
 	margin-right: 10px;
+	color: #5d5c5c;
 	background-color: #F6F6F6;
 }
 .tree-node-icon:hover {
@@ -48,7 +49,7 @@
 	height: 55px;
 	width: 55px;
 	margin: 10px;
-	color: #444444;
+	color: #5d5c5c;
 	text-align: center;
 }
 .view-selector-icon:hover {
@@ -62,7 +63,7 @@
 }
 .expand-collapse-icon {
 	padding: 5px;
-	color: grey;
+	color: #5d5c5c;
 	font-size: 1.4em;
 }
 .expand-collapse-icon:hover {
@@ -96,14 +97,14 @@ td.key {
 	height: 35px;
 	margin-left: 10px;
 	margin-right: 20px;
-  }
-  .search-field {
+}
+.search-field {
 	border: 0px;
 	width: 400px;
-  }
-  .search-field:focus {
-	  outline: none;
-  }
+}
+.search-field:focus {
+	outline: none;
+}
 .search-match-select {
 	margin: 4px;
 	padding-left: 5px;
