@@ -61,7 +61,7 @@
 }
 .expand-collapse-icon {
 	padding: 5px;
-	color: #444444;
+	color: grey;
 	font-size: 1.4em;
 }
 .expand-collapse-icon:hover {
@@ -126,4 +126,10 @@ td.key {
 .fa-sort-down {
 	position: relative;
 	bottom: 7px;
+}
+i {
+	cursor: pointer;
+}
+.tree-node-icon.fa-user-o {
+	cursor: auto !important;
 }
