@@ -12,7 +12,6 @@ class SearchBox extends Component {
     selectPrevMatch = () => {
         const searchFocusIndex = this.props.searchData.searchFocusIndex;
         const searchFoundCount = this.props.searchData.searchFoundCount;
-        const searchMatches = this.props.searchData.searchMatches;
 
         this.props.udpateSearchFocusIndex(
             searchFocusIndex !== null ? (searchFoundCount + searchFocusIndex - 1) % searchFoundCount : searchFoundCount - 1
@@ -22,7 +21,6 @@ class SearchBox extends Component {
     selectNextMatch = () => {
         const searchFocusIndex = this.props.searchData.searchFocusIndex;
         const searchFoundCount = this.props.searchData.searchFoundCount;
-        const searchMatches = this.props.searchData.searchMatches;
 
         this.props.udpateSearchFocusIndex(
             searchFocusIndex !== null ? (searchFocusIndex + 1) % searchFoundCount : 0
