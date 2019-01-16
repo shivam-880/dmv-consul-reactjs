@@ -42,23 +42,29 @@ class DeploymentModel extends Component {
                     })
                 }
                 searchMethod={doSearch}
-                searchQuery={this.props.searchData.searchString}
-                searchFocusOffset={this.props.searchData.searchFocusIndex}
+                searchQuery={this.props.searchString}
+                searchFocusOffset={this.props.searchFocusIndex}
                 searchFinishCallback={matches => {
                     this.props.updateSearchFoundCount(matches.length);
                     this.props.udpateSearchFocusIndex(
-                        matches.length > 0 ? this.props.searchData.searchFocusIndex % matches.length : 0
+                        matches.length > 0 ? this.props.searchFocusIndex % matches.length : 0
                     );
 
                     if (matches.length > 0)
-                        this.fetchInfo(matches[this.props.searchData.searchFocusIndex].node)();
+                        this.fetchInfo(matches[this.props.searchFocusIndex].node)();
                 }}
             />
         );
     }
 }
 
-const mapStateToProps = ({ treeData, searchData }) => { return { treeData, searchData } };
+const mapStateToProps = ({ treeData, searchData }) => { 
+    return {
+        treeData, 
+        searchString: searchData.searchString,
+        searchFocusIndex: searchData.searchFocusIndex
+    } 
+};
 
 export default connect(
     mapStateToProps,

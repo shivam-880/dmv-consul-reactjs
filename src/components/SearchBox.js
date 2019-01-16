@@ -10,8 +10,8 @@ import { NODE, SERVICE, MPS } from '../types/treeNodeType';
 class SearchBox extends Component {
 
     selectPrevMatch = () => {
-        const searchFocusIndex = this.props.searchData.searchFocusIndex;
-        const searchFoundCount = this.props.searchData.searchFoundCount;
+        const searchFocusIndex = this.props.searchFocusIndex;
+        const searchFoundCount = this.props.searchFoundCount;
 
         this.props.udpateSearchFocusIndex(
             searchFocusIndex !== null ? (searchFoundCount + searchFocusIndex - 1) % searchFoundCount : searchFoundCount - 1
@@ -19,8 +19,8 @@ class SearchBox extends Component {
     }
 
     selectNextMatch = () => {
-        const searchFocusIndex = this.props.searchData.searchFocusIndex;
-        const searchFoundCount = this.props.searchData.searchFoundCount;
+        const searchFocusIndex = this.props.searchFocusIndex;
+        const searchFoundCount = this.props.searchFoundCount;
 
         this.props.udpateSearchFocusIndex(
             searchFocusIndex !== null ? (searchFocusIndex + 1) % searchFoundCount : 0
@@ -33,7 +33,7 @@ class SearchBox extends Component {
                 <input
                     name='search'
                     placeholder='Search'
-                    value={this.props.searchData.searchString}
+                    value={this.props.searchString}
                     onChange={e => {
                         this.props.updateSearchString(e.target.value);
                         if (e.target.value === '')
@@ -42,7 +42,7 @@ class SearchBox extends Component {
                 />
                 <button
                     type="button"
-                    disabled={!this.props.searchData.searchFoundCount}
+                    disabled={!this.props.searchFoundCount}
                     onClick={this.selectPrevMatch}
                 >
                     &lt;
@@ -50,7 +50,7 @@ class SearchBox extends Component {
 
                 <button
                     type="button"
-                    disabled={!this.props.searchData.searchFoundCount}
+                    disabled={!this.props.searchFoundCount}
                     onClick={this.selectNextMatch}
                 >
                     &gt;
@@ -58,16 +58,22 @@ class SearchBox extends Component {
 
                 <span>
                     &nbsp;
-                    {this.props.searchData.searchFoundCount > 0 ? this.props.searchData.searchFocusIndex + 1 : 0}
+                    {this.props.searchFoundCount > 0 ? this.props.searchFocusIndex + 1 : 0}
                     &nbsp;/&nbsp;
-                    {this.props.searchData.searchFoundCount || 0}
+                    {this.props.searchFoundCount || 0}
                 </span>
             </form>
         );
     }
 }
 
-const mapStateToProps = ({ searchData }) => { return { searchData } };
+const mapStateToProps = ({ searchData }) => { 
+    return { 
+        searchString: searchData.searchString,
+        searchFocusIndex: searchData.searchFocusIndex,
+        searchFoundCount: searchData.searchFoundCount
+    } 
+};
 
 export default connect(
     mapStateToProps,
