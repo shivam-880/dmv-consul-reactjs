@@ -5,7 +5,6 @@ import { updateSearchString, udpateSearchFocusIndex } from '../actions/updateSea
 import resetTreeNodeInfoView from '../actions/resetTreeNodeInfoView';
 import fetchNodeInfo from '../actions/fetchNodeInfo';
 import fetchServiceInfo from '../actions/fetchServiceInfo';
-import { NODE, SERVICE, MPS } from '../types/treeNodeType';
 import { prevIcon, nextIcon, cancelIcon } from '../icons';
 
 class SearchBox extends Component {
@@ -59,7 +58,7 @@ class SearchBox extends Component {
 
                 {this.renderFoundSearchMatches()}
 
-                <div class="separator"></div>
+                <div className="separator"></div>
 
                 <i className={prevIcon} disabled={!this.props.searchFoundCount} onClick={this.selectPrevMatch}></i>
                 <i className={nextIcon} disabled={!this.props.searchFoundCount} onClick={this.selectNextMatch}></i>

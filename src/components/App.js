@@ -10,10 +10,9 @@ const App = () => {
   return (
     <div className="ui container">
       <div className="ui three column grid">
-        <div className="row">
-        </div>
-        <div className="row">
-        <div className="column">
+      <div className="row"></div>
+        <div className="row header-row">
+          <div>
             <ExpandCollapseAll />
           </div>
           <div className="column">
@@ -21,7 +20,7 @@ const App = () => {
           </div>
         </div>
         <div className="row">
-        <div className="two wide column">
+          <div className="two wide column">
             <ViewSelector />
           </div>
           <div className="tree-view">

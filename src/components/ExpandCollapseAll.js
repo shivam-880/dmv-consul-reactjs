@@ -15,10 +15,10 @@ class ExpandCollapseAll extends Component {
 
     render() {
         return (
-            <div>
+            <>
                 <i className={expandAllIcon} onClick={this.toggleNodeExpansion(true)}></i>
                 <i className={collapseAllIcon} onClick={this.toggleNodeExpansion(false)}></i>
-            </div>
+            </>
         );
     }
 }
