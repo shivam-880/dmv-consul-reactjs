@@ -28,6 +28,20 @@ class SearchBox extends Component {
         );
     }
 
+    renderFoundSearchMatches() {
+        if (this.props.searchFoundCount > 0) {
+            return (
+                <span className='found-search-matches'>
+                    &nbsp;
+                    {this.props.searchFoundCount > 0 ? this.props.searchFocusIndex + 1 : 0}
+                    &nbsp;/&nbsp;
+                    {this.props.searchFoundCount || 0}
+                    &nbsp;
+                </span>
+            );
+        } else return <></>;
+    }
+
     render() {
         return (
             <form className="search-box" onSubmit={e => e.preventDefault()}>
@@ -43,13 +57,7 @@ class SearchBox extends Component {
                     }}
                 />
 
-                <span className='found-search-matches'>
-                    &nbsp;
-                    {this.props.searchFoundCount > 0 ? this.props.searchFocusIndex + 1 : 0}
-                    &nbsp;/&nbsp;
-                    {this.props.searchFoundCount || 0}
-                    &nbsp;
-                </span>
+                {this.renderFoundSearchMatches()}
 
                 <div class="separator"></div>
 
