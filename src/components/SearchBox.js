@@ -62,7 +62,13 @@ class SearchBox extends Component {
 
                 <i className={prevIcon} disabled={!this.props.searchFoundCount} onClick={this.selectPrevMatch}></i>
                 <i className={nextIcon} disabled={!this.props.searchFoundCount} onClick={this.selectNextMatch}></i>
-                <i className={cancelIcon} disabled={this.searchString === ''} onClick={() => this.props.updateSearchString('')}></i>
+                <i
+                    className={cancelIcon}
+                    disabled={this.searchString === ''}
+                    onClick={() => {
+                        this.props.updateSearchString('');
+                        this.props.resetTreeNodeInfoView();
+                    }}></i>
             </form>
         );
     }

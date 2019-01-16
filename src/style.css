@@ -101,6 +101,7 @@ td.key {
 .search-field {
 	border: 0px;
 	width: 400px;
+	font-family: monospace;
 }
 .search-field:focus {
 	outline: none;
