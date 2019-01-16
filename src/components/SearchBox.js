@@ -5,25 +5,46 @@ import { updateSearchString, udpateSearchFocusIndex } from '../actions/updateSea
 import { resetTreeNodeInfoView } from '../actions/resetTreeNodeInfoView';
 import fetchNodeInfo from '../actions/fetchNodeInfo';
 import fetchServiceInfo from '../actions/fetchServiceInfo';
+import { NODE, SERVICE, MPS } from '../types/treeNodeType';
 
 class SearchBox extends Component {
+
+    fetchInfo = ({ type, title, parent = '' }) => () => {
+        console.log(type + " : " + title + " : " + parent);
+        if (type === NODE)
+            this.props.fetchNodeInfo(title);
+
+        if (type === SERVICE)
+            this.props.fetchServiceInfo(title, parent);
+
+        if (type === MPS)
+            this.props.resetTreeNodeInfoView();
+    }
 
     selectPrevMatch = () => {
         const searchFocusIndex = this.props.searchData.searchFocusIndex;
         const searchFoundCount = this.props.searchData.searchFoundCount;
+        const searchMatches = this.props.searchData.searchMatches;
 
         this.props.udpateSearchFocusIndex(
             searchFocusIndex !== null ? (searchFoundCount + searchFocusIndex - 1) % searchFoundCount : searchFoundCount - 1
         );
+
+        const i = ((searchFocusIndex - 1) === -1) ? searchMatches.length - 1 : searchFocusIndex - 1;
+        this.fetchInfo(searchMatches[i].node)();
     }
 
     selectNextMatch = () => {
         const searchFocusIndex = this.props.searchData.searchFocusIndex;
         const searchFoundCount = this.props.searchData.searchFoundCount;
+        const searchMatches = this.props.searchData.searchMatches;
 
         this.props.udpateSearchFocusIndex(
             searchFocusIndex !== null ? (searchFocusIndex + 1) % searchFoundCount : 0
         );
+
+        const i = ((searchFocusIndex + 1) === searchMatches.length) ? 0 : searchFocusIndex + 1;
+        this.fetchInfo(searchMatches[i].node)();
     }
 
     render() {

@@ -1,10 +1,11 @@
-import { UPDATE_SEARCH_STRING, FETCH_NODE_VIEW, FETCH_SERVICE_VIEW, FETCH_MPS_VIEW, UPDATE_SEARCH_FOUND_COUNT, UPDATE_SEARCH_FOCUS_INDEX } from "../types/actionType";
+import { UPDATE_SEARCH_STRING, UPDATE_SEARCH_MATCHES, FETCH_NODE_VIEW, FETCH_SERVICE_VIEW, FETCH_MPS_VIEW, UPDATE_SEARCH_FOUND_COUNT, UPDATE_SEARCH_FOCUS_INDEX } from "../types/actionType";
 
 const searchDataReducer = (
     searchData = {
         searchString: '',
         searchFocusIndex: 0,
-        searchFoundCount: null
+        searchFoundCount: null,
+        searchMatches: []
     },
     { type, payload }
 ) => {
@@ -16,6 +17,9 @@ const searchDataReducer = (
 
     if (type === UPDATE_SEARCH_FOCUS_INDEX)
         return { ...searchData, searchFocusIndex: payload };
+
+    if (type === UPDATE_SEARCH_MATCHES)
+        return { ...searchData, searchMatches: payload };
 
     if (
         type === FETCH_NODE_VIEW ||

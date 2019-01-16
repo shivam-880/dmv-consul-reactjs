@@ -9,7 +9,7 @@ import fetchNodeView from '../actions/fetchNodeView';
 import updateView from '../actions/updateView';
 import fetchNodeInfo from '../actions/fetchNodeInfo';
 import fetchServiceInfo from '../actions/fetchServiceInfo';
-import { udpateSearchFocusIndex, updateSearchFoundCount } from '../actions/updateSearchData';
+import { udpateSearchFocusIndex, updateSearchFoundCount, updateSearchMatches } from '../actions/updateSearchData';
 import { NODE, SERVICE } from '../types/treeNodeType';
 import { doSearch } from './SearchBox';
 
@@ -48,6 +48,8 @@ class DeploymentModel extends Component {
                     
                     if (matches.length > 0)
                         this.fetchInfo(matches[0].node)();
+                    
+                    this.props.updateSearchMatches(matches);
                 }}
             />
         );
@@ -64,6 +66,7 @@ export default connect(
         fetchNodeInfo,
         fetchServiceInfo,
         updateSearchFoundCount,
-        udpateSearchFocusIndex
+        udpateSearchFocusIndex,
+        updateSearchMatches
     }
 )(DeploymentModel);
