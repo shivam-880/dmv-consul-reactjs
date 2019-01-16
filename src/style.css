@@ -18,7 +18,7 @@
 }
 .tree-view {
 	height: 500px;
-    width: 700px;
+    width: 50%;
     border: 1px solid rgba(34,36,38,.15);
     border-radius: 5px;
 }
