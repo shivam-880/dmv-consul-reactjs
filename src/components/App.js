@@ -10,7 +10,6 @@ const App = () => {
   return (
     <div className="ui container">
       <div className="ui three column grid">
-      <div className="row"></div>
         <div className="row header-row">
           <div>
             <ExpandCollapseAll />

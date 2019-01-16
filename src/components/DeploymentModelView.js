@@ -19,6 +19,16 @@ class DeploymentModel extends Component {
         this.props.fetchNodeView();
     }
 
+    searchFinishCallback = matches => {
+        this.props.updateSearchFoundCount(matches.length);
+        this.props.udpateSearchFocusIndex(
+            matches.length > 0 ? this.props.searchFocusIndex % matches.length : 0
+        );
+
+        if (matches.length > 0)
+            this.fetchInfo(matches[this.props.searchFocusIndex].node)();
+    }
+
     fetchInfo = ({ type, title, parent = '' }) => () => {
         if (type === NODE)
             this.props.fetchNodeInfo(title);
@@ -44,26 +54,18 @@ class DeploymentModel extends Component {
                 searchMethod={doSearch}
                 searchQuery={this.props.searchString}
                 searchFocusOffset={this.props.searchFocusIndex}
-                searchFinishCallback={matches => {
-                    this.props.updateSearchFoundCount(matches.length);
-                    this.props.udpateSearchFocusIndex(
-                        matches.length > 0 ? this.props.searchFocusIndex % matches.length : 0
-                    );
-
-                    if (matches.length > 0)
-                        this.fetchInfo(matches[this.props.searchFocusIndex].node)();
-                }}
+                searchFinishCallback={matches => this.searchFinishCallback(matches)}
             />
         );
     }
 }
 
-const mapStateToProps = ({ treeData, searchData }) => { 
+const mapStateToProps = ({ treeData, searchData }) => {
     return {
-        treeData, 
+        treeData,
         searchString: searchData.searchString,
         searchFocusIndex: searchData.searchFocusIndex
-    } 
+    }
 };
 
 export default connect(
