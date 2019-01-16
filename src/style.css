@@ -119,3 +119,11 @@ td.key {
 .container {
 	width: 90% !important;
 }
+.fa-sort-up {
+	position: relative;
+	top: 7px;
+}
+.fa-sort-down {
+	position: relative;
+	bottom: 7px;
+}
