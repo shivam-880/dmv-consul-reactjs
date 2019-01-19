@@ -36,10 +36,6 @@
 .tree-node-icon.fa-user-o:hover {
 	background-color: #F6F6F6;
 }
-.view-selector {
-	display: flex;
-	flex-direction: column;
-}
 .view-selector-icon {
 	border-radius: 50px;
     padding: 16px;

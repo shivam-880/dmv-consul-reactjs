@@ -2,6 +2,7 @@ import React from 'react';
 
 import { selectorNodeIcon, selectorServiceIcon, selectorMpsIcon } from '../common/icons';
 import { NODE_VIEW, SERVICE_VIEW, MPS_VIEW } from '../common/types/view';
+import { ViewSelectorDiv } from './StyledComponents';
 
 const ViewSelector = ({
     view,
@@ -10,11 +11,11 @@ const ViewSelector = ({
     fetchMpsView
 }) => {
     return (
-        <div className="view-selector">
+        <ViewSelectorDiv>
             <i className={selectorNodeIcon + ((view === NODE_VIEW) ? ' selected' : '')} onClick={fetchNodeView}></i>
             <i className={selectorServiceIcon + ((view === SERVICE_VIEW) ? ' selected' : '')} onClick={fetchServiceView}></i>
             <i className={selectorMpsIcon + ((view === MPS_VIEW) ? ' selected' : '')} onClick={fetchMpsView}></i>
-        </div>
+        </ViewSelectorDiv>
     );
 }
 
