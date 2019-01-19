@@ -1,4 +1,4 @@
-import { UPDATE_TREE } from '../types/actionType';
+import { UPDATE_TREE } from '../../types/actionType';
 
 const updateTree = treeData => {
     return {

@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import SortableTree from 'react-sortable-tree';
 import 'react-sortable-tree/style.css';
 
-import '../style.css';
-
-import { fetchNodeView } from '../selector/actions';
-import updateTree from '../actions/updateTree';
-import { fetchNodeDetails, fetchServiceDetails, resetDetails } from '../details/actions';
-import { udpateSearchFocusIndex, updateSearchFoundCount } from '../actions/updateSearchData';
 import { NODE, SERVICE, MPS } from '../types/treeNodeType';
-import { doSearch } from './SearchBox';
+import { doSearch } from '../components/SearchBox';
 
 class DeploymentModel extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     componentDidMount() {
         this.props.fetchNodeView();
     }
@@ -58,23 +55,4 @@ class DeploymentModel extends Component {
     }
 }
 
-const mapStateToProps = ({ treeData, searchData }) => {
-    return {
-        treeData,
-        searchString: searchData.searchString,
-        searchFocusIndex: searchData.searchFocusIndex
-    }
-};
-
-export default connect(
-    mapStateToProps,
-    {
-        fetchNodeView,
-        updateTree,
-        fetchNodeDetails,
-        fetchServiceDetails,
-        resetDetails,
-        updateSearchFoundCount,
-        udpateSearchFocusIndex
-    }
-)(DeploymentModel);
+export default DeploymentModel;

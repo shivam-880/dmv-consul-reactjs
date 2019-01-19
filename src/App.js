@@ -1,11 +1,12 @@
 import React from 'react';
 
-import ExpandCollapseAll from './ExpandCollapseAll';
-import DeploymentModelView from './DeploymentModelView';
-// import InfoView from './InfoView';
-import DetailsContainer from '../details/DetailsContainer';
-import ViewSelectorContainer from '../selector/ViewSelectorContainer';
-import SearchBox from './SearchBox';
+import ExpandCollapseAllContainer from './expand-collapse-all/ExpandCollapseAllContainer';
+import DeploymentModelContainer from './deployment-model/DeploymentModelContainer';
+import DetailsContainer from './details/DetailsContainer';
+import ViewSelectorContainer from './view-selector/ViewSelectorContainer';
+import SearchBox from './components/SearchBox';
+
+import './style.css';
 
 const App = () => {
   return (
@@ -13,7 +14,7 @@ const App = () => {
       <div className="ui three column grid">
         <div className="row header-row">
           <div>
-            <ExpandCollapseAll />
+            <ExpandCollapseAllContainer />
           </div>
           <div className="column">
             <SearchBox />
@@ -24,7 +25,7 @@ const App = () => {
             <ViewSelectorContainer />
           </div>
           <div className="tree-view">
-            <DeploymentModelView />
+            <DeploymentModelContainer />
           </div>
           <div className="column">
             <DetailsContainer />
