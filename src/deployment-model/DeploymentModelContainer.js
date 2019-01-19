@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchNodeView } from '../view-selector/actions';
 import { updateTree } from './actions';
 import { fetchNodeDetails, fetchServiceDetails, resetDetails } from '../details/actions';
-import { udpateSearchFocusIndex, updateSearchFoundCount } from '../actions/updateSearchData';
+import { udpateSearchFocusIndex, updateSearchFoundCount } from '../search-box/actions';
 
 import DeploymentModel from './DeploymentModel';
 

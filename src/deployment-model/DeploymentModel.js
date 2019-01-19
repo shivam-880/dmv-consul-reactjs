@@ -3,7 +3,7 @@ import SortableTree from 'react-sortable-tree';
 import 'react-sortable-tree/style.css';
 
 import { NODE, SERVICE, MPS } from '../types/treeNodeType';
-import { doSearch } from '../components/SearchBox';
+import doSearch from '../search-box/doSearch';
 
 class DeploymentModel extends Component {
     constructor(props) {

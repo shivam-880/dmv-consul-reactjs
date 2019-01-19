@@ -4,7 +4,7 @@ import ExpandCollapseAllContainer from './expand-collapse-all/ExpandCollapseAllC
 import DeploymentModelContainer from './deployment-model/DeploymentModelContainer';
 import DetailsContainer from './details/DetailsContainer';
 import ViewSelectorContainer from './view-selector/ViewSelectorContainer';
-import SearchBox from './components/SearchBox';
+import SearchBoxContainer from './search-box/SearchBoxContainer';
 
 import './style.css';
 
@@ -17,7 +17,7 @@ const App = () => {
             <ExpandCollapseAllContainer />
           </div>
           <div className="column">
-            <SearchBox />
+            <SearchBoxContainer />
           </div>
         </div>
         <div className="row">
