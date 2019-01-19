@@ -1,4 +1,4 @@
-import { UPDATE_FOCUS_INDEX } from "../../common/types/actionType";
+import { UPDATE_FOCUS_INDEX } from "../actionTypes";
 
 const udpateFocusIndex = index => {
     return {

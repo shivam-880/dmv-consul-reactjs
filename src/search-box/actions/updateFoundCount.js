@@ -1,4 +1,4 @@
-import { UPDATE_FOUND_COUNT } from "../../common/types/actionType";
+import { UPDATE_FOUND_COUNT } from "../actionTypes";
 
 const updateFoundCount = count => {
     return {

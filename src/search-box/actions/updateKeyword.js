@@ -1,4 +1,4 @@
-import { UPDATE_KEYWORD } from "../../common/types/actionType";
+import { UPDATE_KEYWORD } from "../actionTypes";
 
 const updateKeyword = keyword => {
     return {
