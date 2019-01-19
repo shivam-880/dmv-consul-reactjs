@@ -1,36 +1,12 @@
 import consul from '../../common/apis/consul';
-import { treeNodeIcon, treeServiceIcon, treeMpsIcon } from '../../common/icons';
 import { FETCH_NODE_VIEW } from '../actionTypes';
-import { NODE, SERVICE, MPS } from '../../common/types/tree';
+import { Node, Service, Mps } from './tree';
 
-const createNode = (title, parent = '', children = []) => {
-    return {
-        'title': title,
-        'className': treeNodeIcon,
-        'type': NODE,
-        'parent': parent,
-        'children': children
-    };
-}
+const createNode = (title) => Node(title);
 
-const createService = (title, parent, children = []) => {
-    return {
-        'title': title,
-        'className': treeServiceIcon,
-        'type': SERVICE,
-        'children': children,
-        'parent': parent
-    };
-}
+const createService = (title, parent) => Service(title, parent);
 
-const createMps = (title, parent) => {
-    return {
-        'title': title,
-        'className': treeMpsIcon,
-        'type': MPS,
-        'parent': parent
-    };
-}
+const createMps = (title, parent) => Mps(title, parent);
 
 const createNodeView = nodeApiResponse => {
     const nodeName = nodeApiResponse.Node.Node;

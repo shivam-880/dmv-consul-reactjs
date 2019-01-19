@@ -1,7 +1,6 @@
 import consul from '../../common/apis/consul';
-import { treeNodeIcon, treeServiceIcon, treeMpsIcon } from '../../common/icons';
 import { FETCH_MPS_VIEW } from '../actionTypes';
-import { SERVICE, NODE, MPS } from '../../common/types/tree';
+import { Node, Service, Mps } from './tree';
 
 const alreadyAddedAsChild = (arr, title) => {
     for (const i in arr) {
@@ -19,34 +18,11 @@ const alreadyAddedAsChild = (arr, title) => {
     }
 }
 
-const createNode = (title, parent) => {
-    return {
-        'title': title,
-        'className': treeNodeIcon,
-        'type': NODE,
-        'parent': parent
-    };
-}
+const createNode = (title, parent) => Node(title, parent);
 
-const createService = (title, node, parent) => {
-    return {
-        'title': title,
-        'className': treeServiceIcon,
-        'type': SERVICE,
-        'children': [node],
-        'parent': parent
-    };
-}
+const createService = (title, parent, node) => Service(title, parent, [node]);
 
-const createMps = (title, service, parent = '') => {
-    return {
-        'title': title,
-        'className': treeMpsIcon,
-        'type': MPS,
-        'children': [service],
-        'parent': parent
-    };
-}
+const createMps = (title, service) => Mps(title, [service]);
 
 const createServiceView = (serviceApiResponse, mpss) => {
     const serviceTitle = serviceApiResponse[0].ServiceName;
