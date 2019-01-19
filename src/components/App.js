@@ -3,7 +3,8 @@ import React from 'react';
 import ViewSelector from './ViewSelector';
 import ExpandCollapseAll from './ExpandCollapseAll';
 import DeploymentModelView from './DeploymentModelView';
-import InfoView from './InfoView';
+// import InfoView from './InfoView';
+import DetailsContainer from '../details/DetailsContainer';
 import SearchBox from './SearchBox';
 
 const App = () => {
@@ -26,7 +27,7 @@ const App = () => {
             <DeploymentModelView />
           </div>
           <div className="column">
-            <InfoView />
+            <DetailsContainer />
           </div>
         </div>
       </div>
