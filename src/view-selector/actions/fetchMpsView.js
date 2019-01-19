@@ -1,7 +1,7 @@
 import consul from '../../common/apis/consul';
 import { treeNodeIcon, treeServiceIcon, treeMpsIcon } from '../../common/icons';
 import { FETCH_MPS_VIEW } from '../actionTypes';
-import { SERVICE, NODE, MPS } from '../../common/types/treeNodeType';
+import { SERVICE, NODE, MPS } from '../../common/types/tree';
 
 const alreadyAddedAsChild = (arr, title) => {
     for (const i in arr) {

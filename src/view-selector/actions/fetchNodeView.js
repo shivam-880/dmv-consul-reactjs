@@ -1,7 +1,7 @@
 import consul from '../../common/apis/consul';
 import { treeNodeIcon, treeServiceIcon, treeMpsIcon } from '../../common/icons';
 import { FETCH_NODE_VIEW } from '../actionTypes';
-import { NODE, SERVICE, MPS } from '../../common/types/treeNodeType';
+import { NODE, SERVICE, MPS } from '../../common/types/tree';
 
 const createNode = (title, parent = '', children = []) => {
     return {
