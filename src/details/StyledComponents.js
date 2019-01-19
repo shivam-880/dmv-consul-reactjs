@@ -6,6 +6,12 @@ export const StyledDetails = styled.div`
     overflow: auto;
 `;
 
+export const Table = styled.table.attrs({
+    className: 'ui celled striped table'
+})`
+    font-family: monospace;
+`;
+
 export const Key = styled.td`
     font-weight: bold;
 `;

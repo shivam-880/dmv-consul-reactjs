@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledDetails, Key, Value } from './StyledComponents';
+import { StyledDetails, Key, Value, Table } from './StyledComponents';
 
 const Details = ({ details }) => {
     const renderKV = detail => {
@@ -16,11 +16,11 @@ const Details = ({ details }) => {
     const renderDetails = details => {
         return details.map(detail => {
             return (
-                <table className='ui celled striped table' key={Math.random()}>
+                <Table key={Math.random()}>
                     <tbody>
                         {renderKV(detail)}
                     </tbody>
-                </table>
+                </Table>
             );
         });
     }
