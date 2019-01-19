@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SearchForm = styled.form`
+export const StyledSearchBox = styled.form`
     width: 500px;
     border: 1px solid rgba(34,36,38,.15);
     border-radius: 5px;
@@ -13,7 +13,7 @@ export const SearchForm = styled.form`
     align-items: center;
 `;
 
-export const SearchInput = styled.input`
+export const Input = styled.input`
     border: 0px;
     width: 400px;
     font-family: monospace;

@@ -69,14 +69,6 @@
 table {
 	font-family: monospace;
 }
-td.key {
-	font-weight: bold;
-}
-.info-view {
-	height: 500px;
-	padding-right: 5px;
-	overflow: auto;
-}
 .search-match-select {
 	margin: 4px;
 	padding-left: 5px;

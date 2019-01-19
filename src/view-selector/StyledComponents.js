@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ViewSelectorDiv = styled.div`
+export const StyledViewSelector = styled.div`
     display: flex;
     flex-direction: column;
 `;

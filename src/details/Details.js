@@ -1,12 +1,13 @@
 import React from 'react';
+import { StyledDetails, Key, Value } from './StyledComponents';
 
 const Details = ({ details }) => {
     const renderKV = detail => {
         return Object.keys(detail).map(key => {
             return (
                 <tr key={detail[key]}>
-                    <td className='key'>{key.replace(/^\w/, c => c.toUpperCase())}</td>
-                    <td>{detail[key]}</td>
+                    <Key>{key.replace(/^\w/, c => c.toUpperCase())}</Key>
+                    <Value>{detail[key]}</Value>
                 </tr>
             );
         });
@@ -25,7 +26,7 @@ const Details = ({ details }) => {
     }
 
     return (
-        <div className='info-view'>{renderDetails(details)}</div>
+        <StyledDetails>{renderDetails(details)}</StyledDetails>
     );
 }
 
