@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { toggleExpandedForAll } from 'react-sortable-tree';
 
-import { expandAllIcon, collapseAllIcon } from '../icons';
+import { expandAllIcon, collapseAllIcon } from '../common/icons';
 
 const ExpandCollapseAll = ({
     treeData,

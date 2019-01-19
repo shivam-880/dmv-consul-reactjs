@@ -1,5 +1,5 @@
 import consul from '../../common/apis/consul';
-import { treeNodeIcon, treeServiceIcon, treeMpsIcon } from '../../icons';
+import { treeNodeIcon, treeServiceIcon, treeMpsIcon } from '../../common/icons';
 import { FETCH_SERVICE_VIEW } from '../../types/actionType';
 import { SERVICE, NODE, MPS } from '../../types/treeNodeType';
 

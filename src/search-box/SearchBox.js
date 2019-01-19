@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { prevIcon, nextIcon, cancelIcon } from '../icons';
+import { prevIcon, nextIcon, cancelIcon } from '../common/icons';
 
 const SearchBox = ({
     searchString,
