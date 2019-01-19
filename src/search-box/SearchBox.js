@@ -6,7 +6,7 @@ const SearchBox = ({
     keyword,
     focusIndex,
     foundCount,
-    updateSearchString,
+    updateKeyword,
     udpateFocusIndex,
     fetchNodeDetails,
     fetchServiceDetails,
@@ -46,7 +46,7 @@ const SearchBox = ({
                 placeholder='Search'
                 value={keyword}
                 onChange={e => {
-                    updateSearchString(e.target.value);
+                    updateKeyword(e.target.value);
                     if (e.target.value === '')
                         resetDetails()
                 }}
@@ -62,7 +62,7 @@ const SearchBox = ({
                 className={cancelIcon}
                 disabled={keyword === ''}
                 onClick={() => {
-                    updateSearchString('');
+                    updateKeyword('');
                     resetDetails();
                 }}></i>
         </form>

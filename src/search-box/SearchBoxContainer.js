@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { updateSearchString, udpateFocusIndex } from './actions';
+import { updateKeyword, udpateFocusIndex } from './actions';
 import { fetchNodeDetails, fetchServiceDetails, resetDetails } from '../details/actions';
 import SearchBox from './SearchBox';
 
@@ -12,7 +12,7 @@ const mapStateToProps = ({ search }) => {
 const SearchBoxContainer = connect(
     mapStateToProps,
     {
-        updateSearchString,
+        updateKeyword,
         udpateFocusIndex,
         fetchNodeDetails,
         fetchServiceDetails,
