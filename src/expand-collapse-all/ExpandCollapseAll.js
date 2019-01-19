@@ -1,7 +1,7 @@
 import React from 'react';
 import { toggleExpandedForAll } from 'react-sortable-tree';
 
-import { expandAllIcon, collapseAllIcon } from '../common/icons';
+import { ExpandAll, CollapseAll } from './StyledComponents';
 
 const ExpandCollapseAll = ({ treeData, updateTree }) => {
     const toggleNodeExpansion = expanded => () => {
@@ -10,8 +10,8 @@ const ExpandCollapseAll = ({ treeData, updateTree }) => {
 
     return (
         <>
-            <i className={expandAllIcon} onClick={toggleNodeExpansion(true)}></i>
-            <i className={collapseAllIcon} onClick={toggleNodeExpansion(false)}></i>
+            <ExpandAll onClick={toggleNodeExpansion(true)}></ExpandAll>
+            <CollapseAll onClick={toggleNodeExpansion(false)}></CollapseAll>
         </>
     );
 }
