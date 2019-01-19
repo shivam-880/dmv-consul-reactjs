@@ -1,4 +1,5 @@
 import React from 'react';
+import { SearchForm, SearchInput } from './SearchStyledComponents';
 
 import { prevIcon, nextIcon, cancelIcon } from '../common/icons';
 
@@ -39,10 +40,9 @@ const SearchBox = ({
     }
 
     return (
-        <form className="search-box" onSubmit={e => e.preventDefault()}>
-            <input
+        <SearchForm onSubmit={e => e.preventDefault()}>
+            <SearchInput
                 name='search'
-                className='search-field'
                 placeholder='Search'
                 value={keyword}
                 onChange={e => {
@@ -65,7 +65,7 @@ const SearchBox = ({
                     updateKeyword('');
                     resetDetails();
                 }}></i>
-        </form>
+        </SearchForm>
     );
 }
 
