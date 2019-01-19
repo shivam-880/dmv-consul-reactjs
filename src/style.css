@@ -16,12 +16,6 @@
 	box-shadow: 0 0 4pt 1pt #FCE904;
 	border-radius: 5px;
 }
-.tree-view {
-	height: 100%;
-    width: 54%;
-    border: 1px solid rgba(34,36,38,.15);
-    border-radius: 5px;
-}
 .tree-node-icon {
 	border-right: solid 1px rgba(34,36,38,.15);
 	padding: 12px;

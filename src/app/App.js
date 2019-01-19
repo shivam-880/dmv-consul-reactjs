@@ -13,9 +13,7 @@ const App = () => {
     <div className="ui container">
       <div className="ui three column grid">
         <div className="row header-row">
-          <div>
-            <ExpandCollapseAllContainer />
-          </div>
+          <ExpandCollapseAllContainer />
           <div className="column">
             <SearchBoxContainer />
           </div>
@@ -24,9 +22,7 @@ const App = () => {
           <div className="two wide column view-selector-container">
             <ViewSelectorContainer />
           </div>
-          <div className="tree-view">
-            <DeploymentModelContainer />
-          </div>
+          <DeploymentModelContainer />
           <div className="column">
             <DetailsContainer />
           </div>
