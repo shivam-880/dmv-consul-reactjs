@@ -3,16 +3,13 @@ import { connect } from 'react-redux';
 import { fetchNodeView } from '../view-selector/actions';
 import { updateTree } from './actions';
 import { fetchNodeDetails, fetchServiceDetails, resetDetails } from '../details/actions';
-import { udpateSearchFocusIndex, updateSearchFoundCount } from '../search-box/actions';
+import { udpateFocusIndex, updateSearchFoundCount } from '../search-box/actions';
 
 import DeploymentModel from './DeploymentModel';
 
 const mapStateToProps = ({ treeData, search }) => {
-    return {
-        treeData,
-        keyword: search.keyword,
-        focusIndex: search.focusIndex
-    }
+    const { keyword, focusIndex } = search;
+    return { treeData, keyword, focusIndex };
 };
 
 const DeploymentModelContainer = connect(
@@ -24,7 +21,7 @@ const DeploymentModelContainer = connect(
         fetchServiceDetails,
         resetDetails,
         updateSearchFoundCount,
-        udpateSearchFocusIndex
+        udpateFocusIndex
     }
 )(DeploymentModel);
 
