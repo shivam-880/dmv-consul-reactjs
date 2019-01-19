@@ -7,9 +7,7 @@ import '../style.css';
 
 import { fetchNodeView } from '../selector/actions';
 import updateView from '../actions/updateView';
-import fetchNodeInfo from '../actions/fetchNodeInfo';
-import fetchServiceInfo from '../actions/fetchServiceInfo';
-import resetTreeNodeInfoView from '../actions/resetTreeNodeInfoView';
+import { fetchNodeDetails, fetchServiceDetails, resetDetails } from '../details/actions';
 import { udpateSearchFocusIndex, updateSearchFoundCount } from '../actions/updateSearchData';
 import { NODE, SERVICE, MPS } from '../types/treeNodeType';
 import { doSearch } from './SearchBox';
@@ -31,13 +29,13 @@ class DeploymentModel extends Component {
 
     fetchInfo = ({ type, title, parent = '' }) => () => {
         if (type === NODE)
-            this.props.fetchNodeInfo(title);
+            this.props.fetchNodeDetails(title);
 
         if (type === SERVICE)
-            this.props.fetchServiceInfo(title, parent);
+            this.props.fetchServiceDetails(title, parent);
 
         if (type === MPS)
-            this.props.resetTreeNodeInfoView();
+            this.props.resetDetails();
     }
 
     render() {
@@ -73,9 +71,9 @@ export default connect(
     {
         fetchNodeView,
         updateView,
-        fetchNodeInfo,
-        fetchServiceInfo,
-        resetTreeNodeInfoView,
+        fetchNodeDetails,
+        fetchServiceDetails,
+        resetDetails,
         updateSearchFoundCount,
         udpateSearchFocusIndex
     }

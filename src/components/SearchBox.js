@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { updateSearchString, udpateSearchFocusIndex } from '../actions/updateSearchData';
-import resetTreeNodeInfoView from '../actions/resetTreeNodeInfoView';
-import fetchNodeInfo from '../actions/fetchNodeInfo';
-import fetchServiceInfo from '../actions/fetchServiceInfo';
+import { fetchNodeDetails, fetchServiceDetails, resetDetails } from '../details/actions';
 import { prevIcon, nextIcon, cancelIcon } from '../icons';
 
 class SearchBox extends Component {
@@ -52,7 +50,7 @@ class SearchBox extends Component {
                     onChange={e => {
                         this.props.updateSearchString(e.target.value);
                         if (e.target.value === '')
-                            this.props.resetTreeNodeInfoView()
+                            this.props.resetDetails()
                     }}
                 />
 
@@ -67,7 +65,7 @@ class SearchBox extends Component {
                     disabled={this.searchString === ''}
                     onClick={() => {
                         this.props.updateSearchString('');
-                        this.props.resetTreeNodeInfoView();
+                        this.props.resetDetails();
                     }}></i>
             </form>
         );
@@ -87,9 +85,9 @@ export default connect(
     {
         updateSearchString,
         udpateSearchFocusIndex,
-        fetchNodeInfo,
-        fetchServiceInfo,
-        resetTreeNodeInfoView
+        fetchNodeDetails,
+        fetchServiceDetails,
+        resetDetails
     }
 )(SearchBox);
 
