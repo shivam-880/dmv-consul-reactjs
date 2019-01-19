@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { toggleExpandedForAll } from 'react-sortable-tree';
 
-import updateView from '../actions/updateView';
+import updateTree from '../actions/updateTree';
 import { expandAllIcon, collapseAllIcon } from '../icons';
 
 class ExpandCollapseAll extends Component {
     toggleNodeExpansion = expanded => () => {
-        this.props.updateView(toggleExpandedForAll({
+        this.props.updateTree(toggleExpandedForAll({
             treeData: this.props.treeData,
             expanded
         }));
@@ -27,4 +27,4 @@ const mapStateToProps = ({ treeData }) => {
     return { treeData };
 }
 
-export default connect(mapStateToProps, { updateView })(ExpandCollapseAll);
+export default connect(mapStateToProps, { updateTree })(ExpandCollapseAll);

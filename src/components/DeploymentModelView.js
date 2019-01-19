@@ -6,7 +6,7 @@ import 'react-sortable-tree/style.css';
 import '../style.css';
 
 import { fetchNodeView } from '../selector/actions';
-import updateView from '../actions/updateView';
+import updateTree from '../actions/updateTree';
 import { fetchNodeDetails, fetchServiceDetails, resetDetails } from '../details/actions';
 import { udpateSearchFocusIndex, updateSearchFoundCount } from '../actions/updateSearchData';
 import { NODE, SERVICE, MPS } from '../types/treeNodeType';
@@ -42,7 +42,7 @@ class DeploymentModel extends Component {
         return (
             <SortableTree
                 treeData={this.props.treeData}
-                onChange={treeData => this.props.updateView(treeData)}
+                onChange={treeData => this.props.updateTree(treeData)}
                 canDrag={false}
                 generateNodeProps={
                     ({ node, path }) => ({
@@ -70,7 +70,7 @@ export default connect(
     mapStateToProps,
     {
         fetchNodeView,
-        updateView,
+        updateTree,
         fetchNodeDetails,
         fetchServiceDetails,
         resetDetails,
