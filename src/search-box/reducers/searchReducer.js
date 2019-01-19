@@ -1,4 +1,5 @@
-import { FETCH_NODE_VIEW, FETCH_SERVICE_VIEW, FETCH_MPS_VIEW, UPDATE_KEYWORD, UPDATE_FOUND_COUNT, UPDATE_FOCUS_INDEX } from "../../common/types/actionType";
+import { UPDATE_KEYWORD, UPDATE_FOUND_COUNT, UPDATE_FOCUS_INDEX } from "../../common/types/actionType";
+import { FETCH_NODE_VIEW, FETCH_SERVICE_VIEW, FETCH_MPS_VIEW } from '../../view-selector/actionTypes';
 
 const defaultSearchValue = {
     keyword: '',

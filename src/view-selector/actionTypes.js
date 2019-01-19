@@ -1,0 +1,3 @@
+export const FETCH_NODE_VIEW = 'FETCH_NODE_VIEW';
+export const FETCH_SERVICE_VIEW = 'FETCH_SERVICE_VIEW';
+export const FETCH_MPS_VIEW = 'FETCH_MPS_VIEW';
