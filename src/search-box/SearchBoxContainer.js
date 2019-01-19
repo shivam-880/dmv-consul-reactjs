@@ -5,11 +5,8 @@ import { fetchNodeDetails, fetchServiceDetails, resetDetails } from '../details/
 import SearchBox from './SearchBox';
 
 const mapStateToProps = ({ search }) => {
-    return {
-        searchString: search.searchString,
-        searchFocusIndex: search.searchFocusIndex,
-        searchFoundCount: search.searchFoundCount
-    }
+    const { keyword, focusIndex, foundCount } = search;
+    return { keyword, focusIndex, foundCount }
 };
 
 const SearchBoxContainer = connect(

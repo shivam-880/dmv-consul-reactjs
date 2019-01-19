@@ -1,20 +1,20 @@
 import { UPDATE_SEARCH_STRING, FETCH_NODE_VIEW, FETCH_SERVICE_VIEW, FETCH_MPS_VIEW, UPDATE_SEARCH_FOUND_COUNT, UPDATE_SEARCH_FOCUS_INDEX } from "../../common/types/actionType";
 
 const defaultSearch = {
-    searchString: '',
-    searchFocusIndex: 0,
-    searchFoundCount: null
+    keyword: '',
+    focusIndex: 0,
+    foundCount: null
 };
 
 const searchReducer = (search = defaultSearch, { type, payload }) => {
     if (type === UPDATE_SEARCH_STRING)
-        return { ...search, searchString: payload };
+        return { ...search, keyword: payload };
 
     if (type === UPDATE_SEARCH_FOUND_COUNT)
-        return { ...search, searchFoundCount: payload };
+        return { ...search, foundCount: payload };
 
     if (type === UPDATE_SEARCH_FOCUS_INDEX)
-        return { ...search, searchFocusIndex: payload };
+        return { ...search, focusIndex: payload };
 
     if (
         type === FETCH_NODE_VIEW ||

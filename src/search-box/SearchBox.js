@@ -3,9 +3,9 @@ import React from 'react';
 import { prevIcon, nextIcon, cancelIcon } from '../common/icons';
 
 const SearchBox = ({
-    searchString,
-    searchFocusIndex,
-    searchFoundCount,
+    keyword,
+    focusIndex,
+    foundCount,
     updateSearchString,
     udpateSearchFocusIndex,
     fetchNodeDetails,
@@ -15,24 +15,24 @@ const SearchBox = ({
 
     const selectPrevMatch = () => {
         udpateSearchFocusIndex(
-            searchFocusIndex !== null ? (searchFoundCount + searchFocusIndex - 1) % searchFoundCount : searchFoundCount - 1
+            focusIndex !== null ? (foundCount + focusIndex - 1) % foundCount : foundCount - 1
         );
     }
 
     const selectNextMatch = () => {
         udpateSearchFocusIndex(
-            searchFocusIndex !== null ? (searchFocusIndex + 1) % searchFoundCount : 0
+            focusIndex !== null ? (focusIndex + 1) % foundCount : 0
         );
     }
 
     const renderFoundSearchMatches = () => {
-        if (searchFoundCount > 0) {
+        if (foundCount > 0) {
             return (
                 <span className='found-search-matches'>
                     &nbsp;
-                    {searchFoundCount > 0 ? searchFocusIndex + 1 : 0}
+                    {foundCount > 0 ? focusIndex + 1 : 0}
                     &nbsp;/&nbsp;
-                    {searchFoundCount || 0}
+                    {foundCount || 0}
                     &nbsp;
                 </span>
             );
@@ -45,7 +45,7 @@ const SearchBox = ({
                 name='search'
                 className='search-field'
                 placeholder='Search'
-                value={searchString}
+                value={keyword}
                 onChange={e => {
                     updateSearchString(e.target.value);
                     if (e.target.value === '')
@@ -57,11 +57,11 @@ const SearchBox = ({
 
             <div className="separator"></div>
 
-            <i className={prevIcon} disabled={!searchFoundCount} onClick={selectPrevMatch}></i>
-            <i className={nextIcon} disabled={!searchFoundCount} onClick={selectNextMatch}></i>
+            <i className={prevIcon} disabled={!foundCount} onClick={selectPrevMatch}></i>
+            <i className={nextIcon} disabled={!foundCount} onClick={selectNextMatch}></i>
             <i
                 className={cancelIcon}
-                disabled={searchString === ''}
+                disabled={keyword === ''}
                 onClick={() => {
                     updateSearchString('');
                     resetDetails();

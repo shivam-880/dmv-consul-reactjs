@@ -10,8 +10,8 @@ import DeploymentModel from './DeploymentModel';
 const mapStateToProps = ({ treeData, search }) => {
     return {
         treeData,
-        searchString: search.searchString,
-        searchFocusIndex: search.searchFocusIndex
+        keyword: search.keyword,
+        focusIndex: search.focusIndex
     }
 };
 

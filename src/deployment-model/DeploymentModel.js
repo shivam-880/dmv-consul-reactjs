@@ -13,11 +13,11 @@ class DeploymentModel extends Component {
     searchFinishCallback = matches => {
         this.props.updateSearchFoundCount(matches.length);
         this.props.udpateSearchFocusIndex(
-            matches.length > 0 ? this.props.searchFocusIndex % matches.length : 0
+            matches.length > 0 ? this.props.focusIndex % matches.length : 0
         );
 
         if (matches.length > 0)
-            this.fetchInfo(matches[this.props.searchFocusIndex].node)();
+            this.fetchInfo(matches[this.props.focusIndex].node)();
     }
 
     fetchInfo = ({ type, title, parent = '' }) => () => {
@@ -43,8 +43,8 @@ class DeploymentModel extends Component {
                     })
                 }
                 searchMethod={doSearch}
-                searchQuery={this.props.searchString}
-                searchFocusOffset={this.props.searchFocusIndex}
+                searchQuery={this.props.keyword}
+                searchFocusOffset={this.props.focusIndex}
                 searchFinishCallback={matches => this.searchFinishCallback(matches)}
             />
         );
