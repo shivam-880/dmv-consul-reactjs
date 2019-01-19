@@ -4,16 +4,16 @@ import { selectorNodeIcon, selectorServiceIcon, selectorMpsIcon } from '../commo
 import { NODE_VIEW, SERVICE_VIEW, MPS_VIEW } from '../common/types/treeViewType';
 
 const ViewSelector = ({
-    treeView,
+    view,
     fetchNodeView,
     fetchServiceView,
     fetchMpsView
 }) => {
     return (
         <div className="view-selector">
-            <i className={selectorNodeIcon + ((treeView === NODE_VIEW) ? ' selected' : '')} onClick={fetchNodeView}></i>
-            <i className={selectorServiceIcon + ((treeView === SERVICE_VIEW) ? ' selected' : '')} onClick={fetchServiceView}></i>
-            <i className={selectorMpsIcon + ((treeView === MPS_VIEW) ? ' selected' : '')} onClick={fetchMpsView}></i>
+            <i className={selectorNodeIcon + ((view === NODE_VIEW) ? ' selected' : '')} onClick={fetchNodeView}></i>
+            <i className={selectorServiceIcon + ((view === SERVICE_VIEW) ? ' selected' : '')} onClick={fetchServiceView}></i>
+            <i className={selectorMpsIcon + ((view === MPS_VIEW) ? ' selected' : '')} onClick={fetchMpsView}></i>
         </div>
     );
 }
