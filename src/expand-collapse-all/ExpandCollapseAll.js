@@ -3,15 +3,9 @@ import { toggleExpandedForAll } from 'react-sortable-tree';
 
 import { expandAllIcon, collapseAllIcon } from '../common/icons';
 
-const ExpandCollapseAll = ({
-    treeData,
-    updateTree
-}) => {
+const ExpandCollapseAll = ({ treeData, updateTree }) => {
     const toggleNodeExpansion = expanded => () => {
-        updateTree(toggleExpandedForAll({
-            treeData,
-            expanded
-        }));
+        updateTree(toggleExpandedForAll({ treeData, expanded }));
     };
 
     return (
