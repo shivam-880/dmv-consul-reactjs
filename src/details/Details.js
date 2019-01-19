@@ -1,31 +1,31 @@
 import React from 'react';
 
-const renderKeyValue = info => {
-        return Object.keys(info).map(key => {
+const Details = ({ details }) => {
+    const renderKV = detail => {
+        return Object.keys(detail).map(key => {
             return (
-                <tr key={info[key]}>
+                <tr key={detail[key]}>
                     <td className='key'>{key.replace(/^\w/, c => c.toUpperCase())}</td>
-                    <td>{info[key]}</td>
+                    <td>{detail[key]}</td>
                 </tr>
             );
         });
     }
 
-const renderInfo = (details) => {
-        return details.map(info => {
+    const renderDetails = details => {
+        return details.map(detail => {
             return (
                 <table className='ui celled striped table' key={Math.random()}>
                     <tbody>
-                        {renderKeyValue(info)}
+                        {renderKV(detail)}
                     </tbody>
                 </table>
             );
         });
     }
 
-const Details = props => {
     return (
-        <div className='info-view'>{renderInfo(props.details)}</div>
+        <div className='info-view'>{renderDetails(details)}</div>
     );
 }
 

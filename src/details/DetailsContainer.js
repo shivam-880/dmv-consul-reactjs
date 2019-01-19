@@ -1,17 +1,10 @@
-import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Details from './Details';
 
-class DetailsContainer extends Component {
-    render() {
-        return (
-            <Details details={this.props.treeNodeInfo}></Details>
-        );
-    }
-}
-
 const mapStateToProps = ({ treeNodeInfo }) => {
-    return { treeNodeInfo };
+    return { details: treeNodeInfo };
 }
 
-export default connect(mapStateToProps)(DetailsContainer);
+const DetailsContainer = connect(mapStateToProps)(Details);
+
+export default DetailsContainer;
