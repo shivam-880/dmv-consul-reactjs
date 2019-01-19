@@ -7,20 +7,19 @@ const SearchBox = ({
     focusIndex,
     foundCount,
     updateSearchString,
-    udpateSearchFocusIndex,
+    udpateFocusIndex,
     fetchNodeDetails,
     fetchServiceDetails,
     resetDetails
 }) => {
-
     const selectPrevMatch = () => {
-        udpateSearchFocusIndex(
+        udpateFocusIndex(
             focusIndex !== null ? (foundCount + focusIndex - 1) % foundCount : foundCount - 1
         );
     }
 
     const selectNextMatch = () => {
-        udpateSearchFocusIndex(
+        udpateFocusIndex(
             focusIndex !== null ? (focusIndex + 1) % foundCount : 0
         );
     }

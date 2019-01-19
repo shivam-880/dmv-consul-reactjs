@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchNodeView } from '../view-selector/actions';
 import { updateTree } from './actions';
 import { fetchNodeDetails, fetchServiceDetails, resetDetails } from '../details/actions';
-import { udpateFocusIndex, updateSearchFoundCount } from '../search-box/actions';
+import { udpateFocusIndex, updateFoundCount } from '../search-box/actions';
 
 import DeploymentModel from './DeploymentModel';
 
@@ -20,7 +20,7 @@ const DeploymentModelContainer = connect(
         fetchNodeDetails,
         fetchServiceDetails,
         resetDetails,
-        updateSearchFoundCount,
+        updateFoundCount,
         udpateFocusIndex
     }
 )(DeploymentModel);

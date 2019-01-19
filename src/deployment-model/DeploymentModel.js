@@ -11,7 +11,7 @@ class DeploymentModel extends Component {
     }
 
     searchFinishCallback = matches => {
-        this.props.updateSearchFoundCount(matches.length);
+        this.props.updateFoundCount(matches.length);
         this.props.udpateFocusIndex(
             matches.length > 0 ? this.props.focusIndex % matches.length : 0
         );
