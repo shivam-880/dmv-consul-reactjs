@@ -4,11 +4,11 @@ import { updateSearchString, udpateSearchFocusIndex } from './actions';
 import { fetchNodeDetails, fetchServiceDetails, resetDetails } from '../details/actions';
 import SearchBox from './SearchBox';
 
-const mapStateToProps = ({ searchData }) => {
+const mapStateToProps = ({ search }) => {
     return {
-        searchString: searchData.searchString,
-        searchFocusIndex: searchData.searchFocusIndex,
-        searchFoundCount: searchData.searchFoundCount
+        searchString: search.searchString,
+        searchFocusIndex: search.searchFocusIndex,
+        searchFoundCount: search.searchFoundCount
     }
 };
 

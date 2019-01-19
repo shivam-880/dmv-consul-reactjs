@@ -7,11 +7,11 @@ import { udpateSearchFocusIndex, updateSearchFoundCount } from '../search-box/ac
 
 import DeploymentModel from './DeploymentModel';
 
-const mapStateToProps = ({ treeData, searchData }) => {
+const mapStateToProps = ({ treeData, search }) => {
     return {
         treeData,
-        searchString: searchData.searchString,
-        searchFocusIndex: searchData.searchFocusIndex
+        searchString: search.searchString,
+        searchFocusIndex: search.searchFocusIndex
     }
 };
 

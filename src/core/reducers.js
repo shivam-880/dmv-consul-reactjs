@@ -9,5 +9,5 @@ export default combineReducers({
     treeData: treeReducer,
     treeView: viewReducer,
     details: detailsReducer,
-    searchData: searchReducer
+    search: searchReducer
 });

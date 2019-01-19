@@ -6,15 +6,15 @@ const defaultSearch = {
     searchFoundCount: null
 };
 
-const searchReducer = (searchData = defaultSearch, { type, payload }) => {
+const searchReducer = (search = defaultSearch, { type, payload }) => {
     if (type === UPDATE_SEARCH_STRING)
-        return { ...searchData, searchString: payload };
+        return { ...search, searchString: payload };
 
     if (type === UPDATE_SEARCH_FOUND_COUNT)
-        return { ...searchData, searchFoundCount: payload };
+        return { ...search, searchFoundCount: payload };
 
     if (type === UPDATE_SEARCH_FOCUS_INDEX)
-        return { ...searchData, searchFocusIndex: payload };
+        return { ...search, searchFocusIndex: payload };
 
     if (
         type === FETCH_NODE_VIEW ||
@@ -23,7 +23,7 @@ const searchReducer = (searchData = defaultSearch, { type, payload }) => {
     )
         return defaultSearch;
 
-    return searchData;
+    return search;
 }
 
 export default searchReducer;
