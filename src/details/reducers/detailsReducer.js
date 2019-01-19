@@ -1,7 +1,7 @@
 import { FETCH_SERVICE_DETAILS, FETCH_NODE_DETAILS } from '../../common/types/actionType';
 import { FETCH_NODE_VIEW, FETCH_SERVICE_VIEW, FETCH_MPS_VIEW, RESET_DETAILS } from '../../common/types/actionType';
 
-const detailsReducer = (treeNodeInfo = [], { type, payload }) => {
+const detailsReducer = (details = [], { type, payload }) => {
     if (type === FETCH_SERVICE_DETAILS || type === FETCH_NODE_DETAILS )
         return payload;
         
@@ -13,7 +13,7 @@ const detailsReducer = (treeNodeInfo = [], { type, payload }) => {
     )
         return [];
     
-    return treeNodeInfo;
+    return details;
 }
 
 export default detailsReducer;

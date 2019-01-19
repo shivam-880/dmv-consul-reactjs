@@ -8,6 +8,6 @@ import { searchReducer } from '../search-box/reducers';
 export default combineReducers({
     treeData: treeReducer,
     treeView: viewReducer,
-    treeNodeInfo: detailsReducer,
+    details: detailsReducer,
     searchData: searchReducer
 });
