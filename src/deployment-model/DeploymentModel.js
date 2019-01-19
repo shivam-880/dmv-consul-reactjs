@@ -6,10 +6,6 @@ import { NODE, SERVICE, MPS } from '../common/types/treeNodeType';
 import doSearch from '../search-box/doSearch';
 
 class DeploymentModel extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     componentDidMount() {
         this.props.fetchNodeView();
     }
