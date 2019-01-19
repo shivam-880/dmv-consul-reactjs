@@ -12,8 +12,8 @@ export const SearchForm = styled.form`
     flex-direction: row;
     align-items: center;
     `;
-    
-    export const SearchInput = styled.input`
+
+export const SearchInput = styled.input`
     border: 0px;
     width: 400px;
     font-family: monospace;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SearchForm, SearchInput } from './SearchStyledComponents';
+import { SearchForm, SearchInput } from './StyledComponents';
 
 import { prevIcon, nextIcon, cancelIcon } from '../common/icons';
 
