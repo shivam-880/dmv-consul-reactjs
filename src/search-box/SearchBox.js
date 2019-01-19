@@ -1,5 +1,5 @@
 import React from 'react';
-import { SearchForm, SearchInput } from './StyledComponents';
+import { SearchForm, SearchInput, Separator } from './StyledComponents';
 
 import { prevIcon, nextIcon, cancelIcon } from '../common/icons';
 
@@ -53,7 +53,7 @@ const SearchBox = ({
 
             {renderFoundSearchMatches()}
 
-            <div className="separator"></div>
+            <Separator />
 
             <i className={prevIcon} disabled={!foundCount} onClick={selectPrevMatch}></i>
             <i className={nextIcon} disabled={!foundCount} onClick={selectNextMatch}></i>

@@ -11,7 +11,7 @@ export const SearchForm = styled.form`
     display: flex;
     flex-direction: row;
     align-items: center;
-    `;
+`;
 
 export const SearchInput = styled.input`
     border: 0px;
@@ -20,4 +20,11 @@ export const SearchInput = styled.input`
     &:focus {
         outline: none;
     }
+`;
+
+export const Separator = styled.div`
+    border-left: 1px solid rgba(34,36,38,.15);
+    height: 35px;
+    margin-left: 10px;
+    margin-right: 20px;
 `;
