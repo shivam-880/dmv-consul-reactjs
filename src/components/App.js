@@ -5,6 +5,7 @@ import ExpandCollapseAll from './ExpandCollapseAll';
 import DeploymentModelView from './DeploymentModelView';
 // import InfoView from './InfoView';
 import DetailsContainer from '../details/DetailsContainer';
+import ViewSelectorContainer from '../selector/ViewSelectorContainer';
 import SearchBox from './SearchBox';
 
 const App = () => {
@@ -21,7 +22,7 @@ const App = () => {
         </div>
         <div className="row">
           <div className="two wide column view-selector-container">
-            <ViewSelector />
+            <ViewSelectorContainer />
           </div>
           <div className="tree-view">
             <DeploymentModelView />
