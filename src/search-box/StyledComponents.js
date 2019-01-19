@@ -28,3 +28,42 @@ export const Separator = styled.div`
     margin-left: 10px;
     margin-right: 20px;
 `;
+
+export const Previous = styled.i.attrs({
+    className: 'fa fa-sort-up fa-2x'
+})`
+    margin: 4px;
+    padding-left: 5px;
+    padding-right: 7px;
+    color: grey;
+    text-align: center;
+    &:hover {
+        color: rgba(34,36,38,.15);
+    }
+`;
+
+export const Next = styled.i.attrs({
+    className: 'fa fa-sort-down fa-2x'
+})`
+    margin: 4px;
+    padding-left: 5px;
+    padding-right: 7px;
+    color: grey;
+    text-align: center;
+    &:hover {
+        color: rgba(34,36,38,.15);
+    }
+`;
+
+export const Cancel = styled.i.attrs({
+    className: 'fa fa-times fa-lg'
+})`
+    margin: 4px;
+    padding-left: 5px;
+    padding-right: 7px;
+    color: grey;
+    text-align: center;
+    &:hover {
+        color: rgba(34,36,38,.15);
+    }
+`;

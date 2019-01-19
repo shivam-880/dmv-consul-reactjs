@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyledSearchBox, Input, Separator } from './StyledComponents';
+import { StyledSearchBox, Input, Separator, Previous, Next, Cancel } from './StyledComponents';
 
 import { prevIcon, nextIcon, cancelIcon } from '../common/icons';
 
@@ -55,15 +55,15 @@ const SearchBox = ({
 
             <Separator />
 
-            <i className={prevIcon} disabled={!foundCount} onClick={selectPrevMatch}></i>
-            <i className={nextIcon} disabled={!foundCount} onClick={selectNextMatch}></i>
-            <i
-                className={cancelIcon}
+            <Previous disabled={!foundCount} onClick={selectPrevMatch}></Previous>
+            <Next disabled={!foundCount} onClick={selectNextMatch}></Next>
+            <Cancel
                 disabled={keyword === ''}
                 onClick={() => {
                     updateKeyword('');
                     resetDetails();
-                }}></i>
+                }}
+            ></Cancel>
         </StyledSearchBox>
     );
 }
