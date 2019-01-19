@@ -1,5 +1,5 @@
 import consul from '../../common/apis/consul.js';
-import { FETCH_NODE_DETAILS } from '../../types/actionType';
+import { FETCH_NODE_DETAILS } from '../../common/types/actionType';
 
 const fetchNodeDetails = title => async dispatch => {
     const nodeDetails = [];

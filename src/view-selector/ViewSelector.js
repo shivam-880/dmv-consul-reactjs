@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { selectorNodeIcon, selectorServiceIcon, selectorMpsIcon } from '../common/icons';
-import { NODE_VIEW, SERVICE_VIEW, MPS_VIEW } from '../types/treeViewType';
+import { NODE_VIEW, SERVICE_VIEW, MPS_VIEW } from '../common/types/treeViewType';
 
 const ViewSelector = ({
     treeView,

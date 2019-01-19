@@ -1,4 +1,4 @@
-import { UPDATE_SEARCH_STRING } from "../../types/actionType";
+import { UPDATE_SEARCH_STRING } from "../../common/types/actionType";
 
 const updateSearchString = searchString => {
     return {

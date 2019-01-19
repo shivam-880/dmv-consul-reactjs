@@ -1,6 +1,6 @@
 import consul from '../../common/apis/consul.js';
-import { FETCH_SERVICE_DETAILS } from '../../types/actionType';
-import { NODE_VIEW, SERVICE_VIEW, MPS_VIEW } from '../../types/treeViewType';
+import { FETCH_SERVICE_DETAILS } from '../../common/types/actionType';
+import { NODE_VIEW, SERVICE_VIEW, MPS_VIEW } from '../../common/types/treeViewType';
 
 const fetchServiceDetails = (title, parent) => async (dispatch, getState) => {
     const serviceDetails = [];

@@ -1,4 +1,4 @@
-import { UPDATE_SEARCH_FOCUS_INDEX } from "../../types/actionType";
+import { UPDATE_SEARCH_FOCUS_INDEX } from "../../common/types/actionType";
 
 const udpateSearchFocusIndex = index => {
     return {
