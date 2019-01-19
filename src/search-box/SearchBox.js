@@ -41,8 +41,7 @@ const SearchBox = ({
 
     return (
         <SearchForm onSubmit={e => e.preventDefault()}>
-            <SearchInput
-                name='search'
+            <SearchInput name='search'
                 placeholder='Search'
                 value={keyword}
                 onChange={e => {
