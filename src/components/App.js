@@ -1,6 +1,5 @@
 import React from 'react';
 
-import ViewSelector from './ViewSelector';
 import ExpandCollapseAll from './ExpandCollapseAll';
 import DeploymentModelView from './DeploymentModelView';
 // import InfoView from './InfoView';

@@ -5,7 +5,7 @@ import 'react-sortable-tree/style.css';
 
 import '../style.css';
 
-import fetchNodeView from '../actions/fetchNodeView';
+import { fetchNodeView } from '../selector/actions';
 import updateView from '../actions/updateView';
 import fetchNodeInfo from '../actions/fetchNodeInfo';
 import fetchServiceInfo from '../actions/fetchServiceInfo';

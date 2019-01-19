@@ -1,8 +1,6 @@
 import { connect } from 'react-redux';
 
-import fetchNodeView from '../actions/fetchNodeView';
-import fetchServiceView from '../actions/fetchServiceView';
-import fetchMpsView from '../actions/fetchMpsView';
+import { fetchNodeView, fetchServiceView, fetchMpsView } from './actions';
 
 import ViewSelector from './ViewSelector';
 
