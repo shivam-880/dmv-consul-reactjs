@@ -1,5 +1,4 @@
-import { FETCH_SERVICE_DETAILS, FETCH_NODE_DETAILS } from '../../common/types/actionType';
-import { RESET_DETAILS } from '../../common/types/actionType';
+import { FETCH_SERVICE_DETAILS, RESET_DETAILS, FETCH_NODE_DETAILS } from '../actionTypes';
 import { FETCH_NODE_VIEW, FETCH_SERVICE_VIEW, FETCH_MPS_VIEW } from '../../view-selector/actionTypes';
 
 const detailsReducer = (details = [], { type, payload }) => {

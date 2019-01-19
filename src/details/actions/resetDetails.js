@@ -1,4 +1,4 @@
-import { RESET_DETAILS } from "../../common/types/actionType";
+import { RESET_DETAILS } from "../actionTypes";
 
 const resetDetails = () => {
     return {
