@@ -8,7 +8,7 @@ export const StyledDeploymentModel = styled.div`
     border-radius: 5px;
 `;
 
-const attachIconClassNameProps = ({ type }) => {
+const attachClassNameProps = ({ type }) => {
     if (type === NODE)
         return { className: 'fa fa-laptop' };
     if (type === SERVICE)
@@ -37,4 +37,4 @@ const iconStyle = `
     }
 `;
 
-export const Icon = styled.i.attrs(props => (attachIconClassNameProps(props)))`${iconStyle}`;
+export const Icon = styled.i.attrs(props => (attachClassNameProps(props)))`${iconStyle}`;
