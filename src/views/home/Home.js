@@ -1,14 +1,14 @@
 import React from 'react';
 
-import ExpandCollapseAllContainer from '../expand-collapse-all/ExpandCollapseAllContainer';
-import DeploymentModelContainer from '../deployment-model/DeploymentModelContainer';
-import DetailsContainer from '../details/DetailsContainer';
-import ViewSelectorContainer from '../view-selector/ViewSelectorContainer';
-import SearchBoxContainer from '../search-box/SearchBoxContainer';
+import ExpandCollapseAllContainer from '../../components/expand-collapse-all/ExpandCollapseAllContainer';
+import DeploymentModelContainer from '../../components/deployment-model/DeploymentModelContainer';
+import DetailsContainer from '../../components/details/DetailsContainer';
+import ViewSelectorContainer from '../../components/view-selector/ViewSelectorContainer';
+import SearchBoxContainer from '../../components/search-box/SearchBoxContainer';
 
 import { Wrapper, Header, GlobalStyle } from './StyledComponent';
 
-const App = () => {
+const Home = () => {
   return (
     <React.Fragment>
       <GlobalStyle />
@@ -35,4 +35,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Home;

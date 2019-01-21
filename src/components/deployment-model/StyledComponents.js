@@ -1,5 +1,5 @@
 import styled, {createGlobalStyle} from 'styled-components';
-import { SERVICE, NODE, MPS } from '../common/types/tree';
+import { SERVICE, NODE, MPS } from '../../common/types/tree';
 
 export const GlobalStyle = createGlobalStyle`
     .rst__rowContents {
