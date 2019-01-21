@@ -4,7 +4,7 @@ import 'react-sortable-tree/style.css';
 
 import { NODE, SERVICE, MPS } from '../common/types/tree';
 import doSearch from '../search-box/doSearch';
-import { StyledDeploymentModel } from './StyledComponents';
+import { StyledDeploymentModel, Icon } from './StyledComponents';
 
 class DeploymentModel extends Component {
     componentDidMount() {
@@ -41,7 +41,7 @@ class DeploymentModel extends Component {
                     canDrag={false}
                     generateNodeProps={
                         ({ node, path }) => ({
-                            title: (<span><i className={node.className} onClick={this.fetchInfo(node)}></i>{node.title}</span>)
+                            title: (<span><Icon type={node.type} onClick={this.fetchInfo(node)}></Icon>{node.title}</span>)
                         })
                     }
                     searchMethod={doSearch}
