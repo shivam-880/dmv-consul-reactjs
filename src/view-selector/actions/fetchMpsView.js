@@ -39,11 +39,11 @@ const createServiceView = (serviceApiResponse, mpss) => {
                         if (res) {
                             child.children.push(nodeInTree);
                         } else {
-                            const serviceInTree = createService(serviceTitle, nodeInTree, tag);
+                            const serviceInTree = createService(serviceTitle, tag, nodeInTree);
                             mpss[tag].children.push(serviceInTree);
                         }
                     } else {
-                        const serviceInTree = createService(serviceTitle, nodeInTree, tag);
+                        const serviceInTree = createService(serviceTitle, tag, nodeInTree);
                         const mpsInTree = createMps(tag, serviceInTree);
                         mpss[tag] = mpsInTree;
                     }
