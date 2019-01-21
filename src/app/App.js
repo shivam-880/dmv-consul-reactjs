@@ -6,7 +6,6 @@ import DetailsContainer from '../details/DetailsContainer';
 import ViewSelectorContainer from '../view-selector/ViewSelectorContainer';
 import SearchBoxContainer from '../search-box/SearchBoxContainer';
 
-import '../style.css';
 import { Wrapper, Header, GlobalStyle } from './StyledComponent';
 
 const App = () => {

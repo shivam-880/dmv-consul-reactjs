@@ -1,5 +1,26 @@
-import styled from 'styled-components';
+import styled, {createGlobalStyle} from 'styled-components';
 import { SERVICE, NODE, MPS } from '../common/types/tree';
+
+export const GlobalStyle = createGlobalStyle`
+    .rst__rowContents {
+        padding-left: 0px !important;
+        border: 1px solid rgba(34,36,38,.15) !important;
+        border-radius: 5px !important;
+    }
+    .rst__rowTitle {
+        font-family: monospace !important;
+    }
+    .rst__rowSearchFocus {
+        outline: 0 !important;
+        box-shadow: 0 0 4pt 1pt #C4D613 !important;
+        border-radius: 5px !important;
+    }
+    .rst__rowSearchMatch {
+        outline: 0 !important;
+        box-shadow: 0 0 4pt 1pt #FCE904;
+        border-radius: 5px !important;
+    }
+`;
 
 export const StyledDeploymentModel = styled.div`
     height: 100%;

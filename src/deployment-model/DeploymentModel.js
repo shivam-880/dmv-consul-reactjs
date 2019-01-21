@@ -4,7 +4,7 @@ import 'react-sortable-tree/style.css';
 
 import { NODE, SERVICE, MPS } from '../common/types/tree';
 import doSearch from '../search-box/doSearch';
-import { StyledDeploymentModel, Icon } from './StyledComponents';
+import { StyledDeploymentModel, Icon, GlobalStyle } from './StyledComponents';
 
 class DeploymentModel extends Component {
     componentDidMount() {
@@ -35,6 +35,7 @@ class DeploymentModel extends Component {
     render() {
         return (
             <StyledDeploymentModel>
+                <GlobalStyle />
                 <SortableTree
                     treeData={this.props.treeData}
                     onChange={treeData => this.props.updateTree(treeData)}
