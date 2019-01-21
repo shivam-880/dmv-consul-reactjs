@@ -29,6 +29,10 @@ export const Separator = styled.div`
     margin-right: 20px;
 `;
 
+export const StyledMatchCount = styled.span`
+    color: grey;
+`;
+
 const buttonStyle = `
     margin: 4px;
     padding-left: 5px;

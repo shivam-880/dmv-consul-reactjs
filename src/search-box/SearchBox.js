@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyledSearchBox, Input, Separator, Previous, Next, Cancel } from './StyledComponents';
+import MatchCount from './MatchCount';
 
 const SearchBox = ({
     keyword,
@@ -23,20 +24,6 @@ const SearchBox = ({
         );
     }
 
-    const renderFoundSearchMatches = () => {
-        if (foundCount > 0) {
-            return (
-                <span className='found-search-matches'>
-                    &nbsp;
-                    {foundCount > 0 ? focusIndex + 1 : 0}
-                    &nbsp;/&nbsp;
-                    {foundCount || 0}
-                    &nbsp;
-                </span>
-            );
-        } else return <></>;
-    }
-
     return (
         <StyledSearchBox onSubmit={e => e.preventDefault()}>
             <Input name='search'
@@ -49,7 +36,7 @@ const SearchBox = ({
                 }}
             />
 
-            {renderFoundSearchMatches()}
+            <MatchCount focusIndex={focusIndex} foundCount={foundCount}/>
 
             <Separator />
 
