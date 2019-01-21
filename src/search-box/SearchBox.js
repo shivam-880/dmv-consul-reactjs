@@ -1,8 +1,6 @@
 import React from 'react';
 import { StyledSearchBox, Input, Separator, Previous, Next, Cancel } from './StyledComponents';
 
-import { prevIcon, nextIcon, cancelIcon } from '../common/icons';
-
 const SearchBox = ({
     keyword,
     focusIndex,
