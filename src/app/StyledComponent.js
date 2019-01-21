@@ -1,4 +1,17 @@
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
+
+export const GlobalStyle = createGlobalStyle`
+    .container {
+        width: 90% !important;
+        margin-top: 15px;
+    }
+    i {
+        cursor: pointer;
+    }
+    .selected {
+        background-color: #D9D9D9;
+    }
+`;
 
 export const Header = styled.div`
     display: flex !important;

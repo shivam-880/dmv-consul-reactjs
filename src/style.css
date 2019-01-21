@@ -4,25 +4,15 @@
 	border-radius: 5px;
 }
 .rst__rowTitle {
-    font-family: monospace;
+	font-family: monospace;
 }
 .rst__rowSearchFocus {
 	outline: 0;
-    box-shadow: 0 0 4pt 1pt #C4D613 !important;
+	box-shadow: 0 0 4pt 1pt #C4D613 !important;
 	border-radius: 5px;
 }
 .rst__rowSearchMatch {
 	outline: 0;
 	box-shadow: 0 0 4pt 1pt #FCE904;
 	border-radius: 5px;
-}
-.container {
-	width: 90% !important;
-	margin-top: 15px;
-}
-i {
-	cursor: pointer;
-}
-.selected {
-	background-color: #D9D9D9;
 }
