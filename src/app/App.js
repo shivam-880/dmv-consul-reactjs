@@ -7,21 +7,22 @@ import ViewSelectorContainer from '../view-selector/ViewSelectorContainer';
 import SearchBoxContainer from '../search-box/SearchBoxContainer';
 
 import '../style.css';
+import { ViewSelectorColumnWrapper, HeaderRow } from './StyledComponent';
 
 const App = () => {
   return (
     <div className="ui container">
       <div className="ui three column grid">
-        <div className="row header-row">
+        <HeaderRow>
           <ExpandCollapseAllContainer />
           <div className="column">
             <SearchBoxContainer />
           </div>
-        </div>
+        </HeaderRow>
         <div className="row">
-          <div className="two wide column view-selector-container">
+          <ViewSelectorColumnWrapper>
             <ViewSelectorContainer />
-          </div>
+          </ViewSelectorColumnWrapper>
           <DeploymentModelContainer />
           <div className="column">
             <DetailsContainer />
