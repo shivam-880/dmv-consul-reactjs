@@ -38,6 +38,14 @@ const buttonStyle = `
     &:hover {
         color: rgba(34,36,38,.15);
     }
+    &.fa-sort-up {
+        position: relative;
+        top: 7px;
+    }
+    &.fa-sort-down {
+        position: relative;
+        bottom: 7px;
+    }
 `;
 
 export const Previous = styled.i.attrs({

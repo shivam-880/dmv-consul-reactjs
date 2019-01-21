@@ -30,14 +30,6 @@
 	width: 90% !important;
 	margin-top: 15px;
 }
-.fa-sort-up {
-	position: relative;
-	top: 7px;
-}
-.fa-sort-down {
-	position: relative;
-	bottom: 7px;
-}
 i {
 	cursor: pointer;
 }
