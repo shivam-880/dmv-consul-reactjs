@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { NODE_VIEW, SERVICE_VIEW, MPS_VIEW } from '../common/types/view';
+import { NODE_VIEW, SERVICE_VIEW, MPS_VIEW } from '../../common/types/view';
 
 export const StyledViewSelector = styled.div`
     display: flex;

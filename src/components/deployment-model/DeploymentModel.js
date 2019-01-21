@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SortableTree from 'react-sortable-tree';
 import 'react-sortable-tree/style.css';
 
-import { NODE, SERVICE, MPS } from '../common/types/tree';
+import { NODE, SERVICE, MPS } from '../../common/types/tree';
 import doSearch from '../search-box/doSearch';
 import { StyledDeploymentModel, Icon, GlobalStyle } from './StyledComponents';
 

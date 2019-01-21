@@ -1,4 +1,4 @@
-import consul from '../../common/apis/consul';
+import consul from '../../../common/apis/consul';
 import { FETCH_NODE_VIEW } from '../actionTypes';
 import { Node, Service, Mps } from './tree';
 

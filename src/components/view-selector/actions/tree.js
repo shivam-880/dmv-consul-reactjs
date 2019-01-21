@@ -1,4 +1,4 @@
-import { SERVICE, NODE, MPS } from '../../common/types/tree';
+import { SERVICE, NODE, MPS } from '../../../common/types/tree';
 
 export const Node = (title, parent = '', children = []) => {
     return {
