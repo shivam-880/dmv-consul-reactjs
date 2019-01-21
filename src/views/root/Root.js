@@ -6,7 +6,7 @@ import DetailsContainer from '../../components/details/DetailsContainer';
 import ViewSelectorContainer from '../../components/view-selector/ViewSelectorContainer';
 import SearchBoxContainer from '../../components/search-box/SearchBoxContainer';
 
-import { Wrapper, Header, GlobalStyle } from './StyledComponent';
+import { Wrapper, Header, GlobalStyle } from './StyledComponents';
 
 const Root = () => {
   return (
