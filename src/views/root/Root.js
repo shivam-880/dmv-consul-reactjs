@@ -8,7 +8,7 @@ import SearchBoxContainer from '../../components/search-box/SearchBoxContainer';
 
 import { Wrapper, Header, GlobalStyle } from './StyledComponent';
 
-const Home = () => {
+const Root = () => {
   return (
     <React.Fragment>
       <GlobalStyle />
@@ -35,4 +35,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Root;

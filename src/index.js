@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import store from './core/store';
-import Home from './views/home/Home';
+import Root from './views/root/Root';
 
 ReactDOM.render(
   <Provider store={store}>
-    <Home />
+    <Root />
   </Provider>,
   document.querySelector('#root')
 );
