@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SearchForm = styled.form`
+export const StyledSearchBox = styled.form`
     width: 500px;
     border: 1px solid rgba(34,36,38,.15);
     border-radius: 5px;
@@ -13,7 +13,7 @@ export const SearchForm = styled.form`
     align-items: center;
 `;
 
-export const SearchInput = styled.input`
+export const Input = styled.input`
     border: 0px;
     width: 400px;
     font-family: monospace;
@@ -28,3 +28,38 @@ export const Separator = styled.div`
     margin-left: 10px;
     margin-right: 20px;
 `;
+
+export const StyledMatchCount = styled.span`
+    color: grey;
+`;
+
+const buttonStyle = `
+    margin: 4px;
+    padding-left: 5px;
+    padding-right: 7px;
+    color: grey;
+    text-align: center;
+    &:hover {
+        color: rgba(34,36,38,.15);
+    }
+    &.fa-sort-up {
+        position: relative;
+        top: 7px;
+    }
+    &.fa-sort-down {
+        position: relative;
+        bottom: 7px;
+    }
+`;
+
+export const Previous = styled.i.attrs({
+    className: 'fa fa-sort-up fa-2x'
+})`${buttonStyle}`;
+
+export const Next = styled.i.attrs({
+    className: 'fa fa-sort-down fa-2x'
+})`${buttonStyle}`;
+
+export const Cancel = styled.i.attrs({
+    className: 'fa fa-times fa-lg'
+})`${buttonStyle}`;

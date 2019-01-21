@@ -6,33 +6,32 @@ import DetailsContainer from '../details/DetailsContainer';
 import ViewSelectorContainer from '../view-selector/ViewSelectorContainer';
 import SearchBoxContainer from '../search-box/SearchBoxContainer';
 
-import '../style.css';
+import { Wrapper, Header, GlobalStyle } from './StyledComponent';
 
 const App = () => {
   return (
-    <div className="ui container">
-      <div className="ui three column grid">
-        <div className="row header-row">
-          <div>
+    <React.Fragment>
+      <GlobalStyle />
+      <div className='ui container'>
+        <div className='ui three column grid'>
+          <Header className='row'>
             <ExpandCollapseAllContainer />
-          </div>
-          <div className="column">
-            <SearchBoxContainer />
-          </div>
-        </div>
-        <div className="row">
-          <div className="two wide column view-selector-container">
-            <ViewSelectorContainer />
-          </div>
-          <div className="tree-view">
+            <div className='column'>
+              <SearchBoxContainer />
+            </div>
+          </Header>
+          <div className='row'>
+            <Wrapper className='two wide column'>
+              <ViewSelectorContainer />
+            </Wrapper>
             <DeploymentModelContainer />
-          </div>
-          <div className="column">
-            <DetailsContainer />
+            <div className='column'>
+              <DetailsContainer />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 

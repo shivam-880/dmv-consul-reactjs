@@ -1,7 +1,6 @@
 import React from 'react';
-import { SearchForm, SearchInput, Separator } from './StyledComponents';
-
-import { prevIcon, nextIcon, cancelIcon } from '../common/icons';
+import { StyledSearchBox, Input, Separator, Previous, Next, Cancel } from './StyledComponents';
+import MatchCount from './MatchCount';
 
 const SearchBox = ({
     keyword,
@@ -25,23 +24,9 @@ const SearchBox = ({
         );
     }
 
-    const renderFoundSearchMatches = () => {
-        if (foundCount > 0) {
-            return (
-                <span className='found-search-matches'>
-                    &nbsp;
-                    {foundCount > 0 ? focusIndex + 1 : 0}
-                    &nbsp;/&nbsp;
-                    {foundCount || 0}
-                    &nbsp;
-                </span>
-            );
-        } else return <></>;
-    }
-
     return (
-        <SearchForm onSubmit={e => e.preventDefault()}>
-            <SearchInput name='search'
+        <StyledSearchBox onSubmit={e => e.preventDefault()}>
+            <Input name='search'
                 placeholder='Search'
                 value={keyword}
                 onChange={e => {
@@ -51,20 +36,20 @@ const SearchBox = ({
                 }}
             />
 
-            {renderFoundSearchMatches()}
+            <MatchCount focusIndex={focusIndex} foundCount={foundCount}/>
 
             <Separator />
 
-            <i className={prevIcon} disabled={!foundCount} onClick={selectPrevMatch}></i>
-            <i className={nextIcon} disabled={!foundCount} onClick={selectNextMatch}></i>
-            <i
-                className={cancelIcon}
+            <Previous disabled={!foundCount} onClick={selectPrevMatch}></Previous>
+            <Next disabled={!foundCount} onClick={selectNextMatch}></Next>
+            <Cancel
                 disabled={keyword === ''}
                 onClick={() => {
                     updateKeyword('');
                     resetDetails();
-                }}></i>
-        </SearchForm>
+                }}
+            ></Cancel>
+        </StyledSearchBox>
     );
 }
 

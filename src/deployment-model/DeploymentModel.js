@@ -4,6 +4,7 @@ import 'react-sortable-tree/style.css';
 
 import { NODE, SERVICE, MPS } from '../common/types/tree';
 import doSearch from '../search-box/doSearch';
+import { StyledDeploymentModel, Icon, GlobalStyle } from './StyledComponents';
 
 class DeploymentModel extends Component {
     componentDidMount() {
@@ -33,20 +34,23 @@ class DeploymentModel extends Component {
 
     render() {
         return (
-            <SortableTree
-                treeData={this.props.treeData}
-                onChange={treeData => this.props.updateTree(treeData)}
-                canDrag={false}
-                generateNodeProps={
-                    ({ node, path }) => ({
-                        title: (<span><i className={node.className} onClick={this.fetchInfo(node)}></i>{node.title}</span>)
-                    })
-                }
-                searchMethod={doSearch}
-                searchQuery={this.props.keyword}
-                searchFocusOffset={this.props.focusIndex}
-                searchFinishCallback={matches => this.searchFinishCallback(matches)}
-            />
+            <StyledDeploymentModel>
+                <GlobalStyle />
+                <SortableTree
+                    treeData={this.props.treeData}
+                    onChange={treeData => this.props.updateTree(treeData)}
+                    canDrag={false}
+                    generateNodeProps={
+                        ({ node, path }) => ({
+                            title: (<span><Icon type={node.type} onClick={this.fetchInfo(node)}></Icon>{node.title}</span>)
+                        })
+                    }
+                    searchMethod={doSearch}
+                    searchQuery={this.props.keyword}
+                    searchFocusOffset={this.props.focusIndex}
+                    searchFinishCallback={matches => this.searchFinishCallback(matches)}
+                />
+            </StyledDeploymentModel>
         );
     }
 }
