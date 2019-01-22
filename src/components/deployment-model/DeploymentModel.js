@@ -37,18 +37,20 @@ class DeploymentModel extends Component {
     }
 
     onIconClick = (e, node) => {
-        this.fetchInfo(node);
-
-        this.selected = e.target.id;
-
-        if (this.lastSelectedIconId > 0)
-            this.icons[this.lastSelectedIconId].setAttribute('class', this.lastSelectedIconClassName);
-
-        this.lastSelectedIconId = e.target.id;
-        this.lastSelectedIconClassName = this.icons[e.target.id].className;
-
-        const c = this.icons[e.target.id].className;
-        this.icons[e.target.id].setAttribute('class', c + ' selected');
+        if(this.icons[e.target.id].getAttribute('type') !== MPS) {
+            this.fetchInfo(node);
+    
+            this.selected = e.target.id;
+    
+            if (this.lastSelectedIconId > 0)
+                this.icons[this.lastSelectedIconId].setAttribute('class', this.lastSelectedIconClassName);
+    
+            this.lastSelectedIconId = e.target.id;
+            this.lastSelectedIconClassName = this.icons[e.target.id].className;
+    
+            const c = this.icons[e.target.id].className;
+            this.icons[e.target.id].setAttribute('class', c + ' selected');
+        }
     }
 
     selfRegister = ic => {
