@@ -9,6 +9,10 @@ import { StyledDeploymentModel, Icon, GlobalStyle } from './StyledComponents';
 class DeploymentModel extends Component {
     componentDidMount() {
         this.props.fetchNodeView();
+        this.icons = {};
+        this.selected = -1;
+        this.lastSelectedIconId = -1;
+        this.lastSelectedIconClassName = '';
     }
 
     searchFinishCallback = matches => {
@@ -18,10 +22,10 @@ class DeploymentModel extends Component {
         );
 
         if (matches.length > 0)
-            this.fetchInfo(matches[this.props.focusIndex].node)();
+            this.fetchInfo(matches[this.props.focusIndex].node);
     }
 
-    fetchInfo = ({ type, title, parent = '' }) => () => {
+    fetchInfo = ({ type, title, parent = '' }) => {
         if (type === NODE)
             this.props.fetchNodeDetails(title);
 
@@ -30,6 +34,26 @@ class DeploymentModel extends Component {
 
         if (type === MPS)
             this.props.resetDetails();
+    }
+
+    onIconClick = (e, node) => {
+        this.fetchInfo(node);
+
+        this.selected = e.target.id;
+
+        if (this.lastSelectedIconId > 0)
+            this.icons[this.lastSelectedIconId].setAttribute('class', this.lastSelectedIconClassName);
+
+        this.lastSelectedIconId = e.target.id;
+        this.lastSelectedIconClassName = this.icons[e.target.id].className;
+
+        const c = this.icons[e.target.id].className;
+        this.icons[e.target.id].setAttribute('class', c + ' selected');
+    }
+
+    selfRegister = ic => {
+        if (ic !== null)
+            this.icons[ic.id] = ic;
     }
 
     render() {
@@ -42,7 +66,18 @@ class DeploymentModel extends Component {
                     canDrag={false}
                     generateNodeProps={
                         ({ node, path }) => ({
-                            title: (<span><Icon type={node.type} onClick={this.fetchInfo(node)}></Icon>{node.title}</span>)
+                            title: (
+                                <span>
+                                    <Icon
+                                        id={node.id}
+                                        ref={ic => this.selfRegister(ic)}
+                                        type={node.type}
+                                        selected={this.selected}
+                                        onClick={e => this.onIconClick(e, node)}
+                                    ></Icon>
+                                    {node.title}
+                                </span>
+                            )
                         })
                     }
                     searchMethod={doSearch}
