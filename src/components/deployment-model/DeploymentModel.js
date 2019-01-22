@@ -54,8 +54,13 @@ class DeploymentModel extends Component {
     }
 
     selfRegister = ic => {
-        if (ic !== null)
+        if (ic !== null) {
+            // It's a hack to overcome automatic assignment of 'selected' class name to a node issue when the views are switched!
+            if (this.lastSelectedIconId !== ic.id) {
+                ic.setAttribute('class', ic.getAttribute('class').replace('selected', ''));
+            }
             this.icons[ic.id] = ic;
+        }
     }
 
     render() {
