@@ -34,6 +34,7 @@ const SearchBox = ({
                     if (e.target.value === '')
                         resetDetails()
                 }}
+                autoComplete='off'
             />
 
             <MatchCount focusIndex={focusIndex} foundCount={foundCount}/>
