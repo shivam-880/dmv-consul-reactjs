@@ -1,4 +1,4 @@
-import { SERVICE, NODE, MPS } from '../../../common/types/tree';
+import { SERVICE, NODE, TAG } from '../../../common/types/tree';
 
 export const Node = (title, parent = '', children = []) => {
     return {
@@ -20,11 +20,11 @@ export const Service = (title, parent = '', children = []) => {
     };
 }
 
-export const Mps = (title, parent = '', children = []) => {
+export const Tag = (title, parent = '', children = []) => {
     return {
         'id': Math.random(),
         'title': title,
-        'type': MPS,
+        'type': TAG,
         'parent': parent,
         'children': children
     };

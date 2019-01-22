@@ -1,6 +1,6 @@
 import consul from '../../../common/apis/consul.js';
 import { FETCH_SERVICE_DETAILS } from '../actionTypes';
-import { NODE_VIEW, SERVICE_VIEW, MPS_VIEW } from '../../../common/types/view';
+import { NODE_VIEW, SERVICE_VIEW, TAG_VIEW } from '../../../common/types/view';
 
 const fetchServiceDetails = (title, parent) => async (dispatch, getState) => {
     const serviceDetails = [];
@@ -21,7 +21,7 @@ const fetchServiceDetails = (title, parent) => async (dispatch, getState) => {
                 })
             }
         });
-    } else if (view === SERVICE_VIEW || view === MPS_VIEW) {
+    } else if (view === SERVICE_VIEW || view === TAG_VIEW) {
         serviceRes.data.forEach(i => {
             if (i.Checks.length > 1) {
                 serviceDetails.push({

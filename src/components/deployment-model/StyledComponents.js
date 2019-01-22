@@ -1,5 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
-import { SERVICE, NODE, MPS } from '../../common/types/tree';
+import { SERVICE, NODE, TAG } from '../../common/types/tree';
 
 export const GlobalStyle = createGlobalStyle`
     .rst__rowContents {
@@ -36,7 +36,7 @@ const attachClassNameProps = ({ id, type, selected }) => {
     if (type === SERVICE)
         return (selected == id) ? { className: 'fa fa-cogs selected' } : { className: 'fa fa-cogs' };
 
-    if (type === MPS)
+    if (type === TAG)
         return { className: 'fa fa-user-o' };
 
     return { className: '' };

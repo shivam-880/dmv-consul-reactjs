@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { NODE_VIEW, SERVICE_VIEW, MPS_VIEW } from '../../common/types/view';
+import { NODE_VIEW, SERVICE_VIEW, TAG_VIEW } from '../../common/types/view';
 
 export const StyledViewSelector = styled.div`
     display: flex;
@@ -30,6 +30,6 @@ export const Service = styled.i.attrs(props => ({
     className: (props.view === SERVICE_VIEW) ? 'fa fa-cogs selected' : 'fa fa-cogs'
 }))`${buttonStyle}`;
 
-export const Mps = styled.i.attrs( props => ({
-    className: (props.view === MPS_VIEW) ? 'fa fa-user-o selected' : 'fa fa-user-o'
+export const Tag = styled.i.attrs( props => ({
+    className: (props.view === TAG_VIEW) ? 'fa fa-user-o selected' : 'fa fa-user-o'
 }))`${buttonStyle}`;
