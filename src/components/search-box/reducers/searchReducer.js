@@ -1,5 +1,5 @@
 import { UPDATE_KEYWORD, UPDATE_FOUND_COUNT, UPDATE_FOCUS_INDEX } from "../actionTypes";
-import { FETCH_NODE_VIEW, FETCH_SERVICE_VIEW, FETCH_MPS_VIEW } from '../../view-selector/actionTypes';
+import { FETCH_NODE_VIEW, FETCH_SERVICE_VIEW, FETCH_TAG_VIEW } from '../../view-selector/actionTypes';
 
 const defaultSearchValue = {
     keyword: '',
@@ -20,7 +20,7 @@ const searchReducer = (search = defaultSearchValue, { type, payload }) => {
     if (
         type === FETCH_NODE_VIEW ||
         type === FETCH_SERVICE_VIEW ||
-        type === FETCH_MPS_VIEW
+        type === FETCH_TAG_VIEW
     )
         return defaultSearchValue;
 

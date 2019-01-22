@@ -1,12 +1,12 @@
 import consul from '../../../common/apis/consul';
 import { FETCH_SERVICE_VIEW } from '../actionTypes';
-import { Node, Service, Mps } from './tree';
+import { Node, Service, Tag } from './tree';
 
 const createNode = (title, parent) => Node(title, parent);
 
 const createService = title => Service(title);
 
-const createMps = (title, parent) => Mps(title, parent);
+const createTag = (title, parent) => Tag(title, parent);
 
 const createServiceView = serviceApiResponse => {
     const serviceInTree = createService(serviceApiResponse[0].ServiceName, );
@@ -17,8 +17,8 @@ const createServiceView = serviceApiResponse => {
         Object.keys(service).forEach(key => {
             if (key === 'ServiceTags') {
                 service[key].forEach(tag => {
-                    const mpsInTree = createMps(tag, nodeInTree.title);
-                    nodeInTree['children'].push(mpsInTree);
+                    const tagInTree = createTag(tag, nodeInTree.title);
+                    nodeInTree['children'].push(tagInTree);
                 });
             }
         });

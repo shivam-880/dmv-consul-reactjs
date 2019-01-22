@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SortableTree from 'react-sortable-tree';
 import 'react-sortable-tree/style.css';
 
-import { NODE, SERVICE, MPS } from '../../common/types/tree';
+import { NODE, SERVICE, TAG } from '../../common/types/tree';
 import doSearch from '../search-box/doSearch';
 import { StyledDeploymentModel, Icon, GlobalStyle } from './StyledComponents';
 
@@ -32,12 +32,12 @@ class DeploymentModel extends Component {
         if (type === SERVICE)
             this.props.fetchServiceDetails(title, parent);
 
-        if (type === MPS)
+        if (type === TAG)
             this.props.resetDetails();
     }
 
     onIconClick = (e, node) => {
-        if(this.icons[e.target.id].getAttribute('type') !== MPS) {
+        if(this.icons[e.target.id].getAttribute('type') !== TAG) {
             this.fetchInfo(node);
     
             this.selected = e.target.id;
