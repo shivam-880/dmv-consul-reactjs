@@ -37,7 +37,7 @@ const attachClassNameProps = ({ id, type, selected }) => {
         return (selected == id) ? { className: 'fa fa-cogs selected' } : { className: 'fa fa-cogs' };
 
     if (type === MPS)
-        return (selected == id) ? { className: 'fa fa-user-o selected' } : { className: 'fa fa-user-o' };
+        return { className: 'fa fa-user-o' };
 
     return { className: '' };
 }

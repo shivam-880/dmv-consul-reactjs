@@ -37,23 +37,30 @@ class DeploymentModel extends Component {
     }
 
     onIconClick = (e, node) => {
-        this.fetchInfo(node);
-
-        this.selected = e.target.id;
-
-        if (this.lastSelectedIconId > 0)
-            this.icons[this.lastSelectedIconId].setAttribute('class', this.lastSelectedIconClassName);
-
-        this.lastSelectedIconId = e.target.id;
-        this.lastSelectedIconClassName = this.icons[e.target.id].className;
-
-        const c = this.icons[e.target.id].className;
-        this.icons[e.target.id].setAttribute('class', c + ' selected');
+        if(this.icons[e.target.id].getAttribute('type') !== MPS) {
+            this.fetchInfo(node);
+    
+            this.selected = e.target.id;
+    
+            if (this.lastSelectedIconId > 0)
+                this.icons[this.lastSelectedIconId].setAttribute('class', this.lastSelectedIconClassName);
+    
+            this.lastSelectedIconId = e.target.id;
+            this.lastSelectedIconClassName = this.icons[e.target.id].className;
+    
+            const c = this.icons[e.target.id].className;
+            this.icons[e.target.id].setAttribute('class', c + ' selected');
+        }
     }
 
     selfRegister = ic => {
-        if (ic !== null)
+        if (ic !== null) {
+            // It's a hack to overcome automatic assignment of 'selected' class name to a node issue when the views are switched!
+            if (this.lastSelectedIconId !== ic.id) {
+                ic.setAttribute('class', ic.getAttribute('class').replace('selected', ''));
+            }
             this.icons[ic.id] = ic;
+        }
     }
 
     render() {
