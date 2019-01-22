@@ -1,4 +1,4 @@
-import styled, {createGlobalStyle} from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import { SERVICE, NODE, MPS } from '../../common/types/tree';
 
 export const GlobalStyle = createGlobalStyle`
@@ -29,13 +29,15 @@ export const StyledDeploymentModel = styled.div`
     border-radius: 5px;
 `;
 
-const attachClassNameProps = ({ type }) => {
+const attachClassNameProps = ({ id, type, selected }) => {
     if (type === NODE)
-        return { className: 'fa fa-laptop' };
+        return (selected == id) ? { className: 'fa fa-laptop selected' } : { className: 'fa fa-laptop' };
+
     if (type === SERVICE)
-        return { className: 'fa fa-cogs' };
+        return (selected == id) ? { className: 'fa fa-cogs selected' } : { className: 'fa fa-cogs' };
+
     if (type === MPS)
-        return { className: 'fa fa-user-o' };
+        return (selected == id) ? { className: 'fa fa-user-o selected' } : { className: 'fa fa-user-o' };
 
     return { className: '' };
 }
@@ -58,4 +60,4 @@ const iconStyle = `
     }
 `;
 
-export const Icon = styled.i.attrs(props => (attachClassNameProps(props)))`${iconStyle}`;
+export const Icon = styled.i.attrs(props => (attachClassNameProps(props))) `${iconStyle}`;
