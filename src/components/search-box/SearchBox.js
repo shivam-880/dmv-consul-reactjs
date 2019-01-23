@@ -8,8 +8,6 @@ const SearchBox = ({
     foundCount,
     updateKeyword,
     udpateFocusIndex,
-    fetchNodeDetails,
-    fetchServiceDetails,
     resetDetails
 }) => {
     const selectPrevMatch = () => {

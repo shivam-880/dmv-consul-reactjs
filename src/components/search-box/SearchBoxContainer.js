@@ -14,8 +14,6 @@ const SearchBoxContainer = connect(
     {
         updateKeyword,
         udpateFocusIndex,
-        fetchNodeDetails,
-        fetchServiceDetails,
         resetDetails
     }
 )(SearchBox);
