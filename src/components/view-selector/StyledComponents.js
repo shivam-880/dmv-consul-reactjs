@@ -31,5 +31,5 @@ export const Service = styled.i.attrs(props => ({
 }))`${buttonStyle}`;
 
 export const Tag = styled.i.attrs( props => ({
-    className: (props.view === TAG_VIEW) ? 'fa fa-user-o selected' : 'fa fa-user-o'
+    className: (props.view === TAG_VIEW) ? 'fa fa-tag selected' : 'fa fa-tag'
 }))`${buttonStyle}`;

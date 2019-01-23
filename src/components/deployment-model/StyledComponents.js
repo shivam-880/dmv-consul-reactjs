@@ -37,7 +37,7 @@ const attachClassNameProps = ({ id, type, selected }) => {
         return (selected == id) ? { className: 'fa fa-cogs selected' } : { className: 'fa fa-cogs' };
 
     if (type === TAG)
-        return { className: 'fa fa-user-o' };
+        return { className: 'fa fa-tag' };
 
     return { className: '' };
 }
@@ -52,10 +52,10 @@ const iconStyle = `
     &:hover {
 	    background-color: #D9D9D9;
     }
-    &.fa-user-o:hover {
+    &.fa-tag:hover {
         background-color: #F6F6F6;
     }
-    &.fa-user-o {
+    &.fa-tag {
         cursor: auto !important;
     }
 `;
