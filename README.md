@@ -3,7 +3,7 @@ This application (built in ReactJs) attempts to depict many-to-many relationship
 
 ## Dependencies
 - **NPM**: This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-- **Consul**: This application requires an already running Consul instance to which all the nodes and services are already registered to.
+- **Consul**: This application requires an already running Consul instance to which all the nodes and services are already registered to. Please refer this [README](https://github.com/codingkapoor/stage-deployment-configs) so as to bring up a deployment model.
 
 ## Start (In Dev)
 ```
