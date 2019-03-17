@@ -20,3 +20,5 @@ npm run build
 npm install -g serve
 serve -s build
 ```
+
+![Alt Text](https://github.com/codingkapoor/dmv-consul-reactjs/blob/master/dmv-consul-reactjs.gif)
