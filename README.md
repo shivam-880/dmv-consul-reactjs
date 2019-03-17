@@ -1,5 +1,5 @@
 # dmv-consul-reactjs
-This application attempts to depict many-to-many relationship in UI using `react-sortable-tree` library. In particular it attempts to express many-to-many relationships between *nodes*, *services* and *customers* that make up a certain deployment model. I have attempted to explain the requirement to build such an application in a blog post which you can read [here](http://www.shivamkapoor.com/blogs/technology/2019/03/04/many-to-many-ux-design-considerations/).
+This application attempts to depict many-to-many relationships in UI using `react-sortable-tree` library. In particular it attempts to express many-to-many relationships between *nodes*, *services* and *customers* that make up a certain deployment model. I have attempted to explain the requirement to build such an application in a blog post which you can read [here](http://www.shivamkapoor.com/blogs/technology/2019/03/04/many-to-many-ux-design-considerations/).
 
 ![Alt Text](https://github.com/codingkapoor/dmv-consul-reactjs/blob/master/dmv-consul-reactjs.gif)
 
