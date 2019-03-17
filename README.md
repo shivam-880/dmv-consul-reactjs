@@ -1,5 +1,5 @@
 # dmv-consul-reactjs
-This application (built in ReactJs) attempts to depict many-to-many relationship between nodes, services and customers using `react-sortable-tree` library. I have already attempted to explain the requirement to build such an application in a blog which you can read [here](http://www.shivamkapoor.com/blogs/technology/2019/03/04/many-to-many-ux-design-considerations/).
+This application (built in ReactJs) attempts to depict many-to-many relationship in UI using `react-sortable-tree` library. I have already attempted to explain the requirement to build such an application in a blog which you can read [here](http://www.shivamkapoor.com/blogs/technology/2019/03/04/many-to-many-ux-design-considerations/).
 
 ## Dependencies
 - **NPM**: This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
