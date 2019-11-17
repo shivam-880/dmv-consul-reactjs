@@ -3,6 +3,8 @@ This application attempts to depict many-to-many relationships in UI using `reac
 
 ![Alt Text](https://github.com/codingkapoor/dmv-consul-reactjs/blob/master/dmv-consul-reactjs.gif)
 
+<br/>
+
 (**Note:** I have used [Peek](https://github.com/phw/peek), an animated gif screen recorder for the gif posted above.)
 
 ## Dependencies
