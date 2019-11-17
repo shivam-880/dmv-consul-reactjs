@@ -23,4 +23,5 @@ npm install -g serve
 serve -s build
 ```
 
-**Note** : I have used [Peek](https://github.com/phw/peek), an animated gif screen recorder for the gif posted above.
+## Note 
+I have used [Peek](https://github.com/phw/peek), an animated gif screen recorder for the gif posted above.
