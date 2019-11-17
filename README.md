@@ -3,6 +3,8 @@ This application attempts to depict many-to-many relationships in UI using `reac
 
 ![Alt Text](https://github.com/codingkapoor/dmv-consul-reactjs/blob/master/dmv-consul-reactjs.gif)
 
+(Note: I have used [Peek](https://github.com/phw/peek), an animated gif screen recorder for the gif posted above.)
+
 ## Dependencies
 - **NPM**: This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 - **Consul**: This application requires an already running Consul instance to which all the nodes and services are already registered. Please refer [README](https://github.com/codingkapoor/stage-deployment-configs) from another project to bring up a virtual environment.
@@ -22,6 +24,3 @@ npm run build
 npm install -g serve
 serve -s build
 ```
-
-## Note 
-I have used [Peek](https://github.com/phw/peek), an animated gif screen recorder for the gif posted above.
